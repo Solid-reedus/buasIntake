@@ -145,8 +145,11 @@
     <ClInclude Include="Event.h" />
     <ClInclude Include="GameplayScene.h" />
     <ClInclude Include="IScene.h" />
+    <ClInclude Include="LncMath.h" />
     <ClInclude Include="MenuScene.h" />
+    <ClInclude Include="Sprite.h" />
     <ClInclude Include="Text.h" />
+    <ClInclude Include="Tile.h" />
     <ClInclude Include="UIBaseHeader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

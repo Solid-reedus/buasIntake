@@ -31,6 +31,9 @@
     <Filter Include="Header Files\common">
       <UniqueIdentifier>{2e8c134c-86e7-40c7-b8a2-390d87c63e3c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\rendering">
+      <UniqueIdentifier>{2a0713b4-b0aa-4518-8904-a7d205996574}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -70,6 +73,15 @@
     </ClInclude>
     <ClInclude Include="Event.h">
       <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="LncMath.h">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Header Files\rendering</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

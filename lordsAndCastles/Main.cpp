@@ -10,7 +10,7 @@ SDL_Texture* gTexture = nullptr;
 TTF_Font* gFont = nullptr;
 
 MenuScene menuScene;
-//GameplayScene gameplayScene;
+GameplayScene gameplayScene;
 
 enum GameScene
 {
@@ -32,7 +32,7 @@ const int SCREEN_HEIGHT = 800;
 
 static bool quitGame = false;
 
-GameScene gameScene = menu;
+GameScene gameScene = gameplay;
 
 bool Init()
 {
@@ -41,7 +41,7 @@ bool Init()
         printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
         return false;
     }
-    gWindow = SDL_CreateWindow("Isometric view testing", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+    gWindow = SDL_CreateWindow("lords and castles", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 
     if (gWindow == NULL)
     {
@@ -97,6 +97,7 @@ int main(int argc, char* args[])
 
             case gameplay:
             {
+                gameplayScene.Init(&quitGame, gRenderer, gFont);
                 break;
             }
 

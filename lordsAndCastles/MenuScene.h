@@ -12,12 +12,12 @@ class MenuScene : public IScene
 	MenuScene();
 	MenuScene(SDL_Renderer* m_renderer, TTF_Font* m_font);
 	~MenuScene();
-	void Update() override;
-	void GameLogic();
 	bool Init(bool *m_quitGame, SDL_Renderer* m_renderer, TTF_Font* m_font);
-	virtual void Clear() override;
 
 	private:
+	virtual void Clear() override;
+	void Update() override;
+	void GameLogic();
 	virtual void RenderScreen() override;
 	SDL_Renderer* renderer;
 	TTF_Font* font;

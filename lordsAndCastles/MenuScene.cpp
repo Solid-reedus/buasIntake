@@ -13,8 +13,6 @@ MenuScene::MenuScene(SDL_Renderer* m_renderer, TTF_Font* m_font)
 	renderer = m_renderer;
 	font = m_font;
 	testingText;
-
-	printf("menu scene\n");
 }
 
 MenuScene::~MenuScene()
@@ -30,10 +28,7 @@ void MenuScene::GameLogic()
 void MenuScene::Update()
 {
 
-	//Main loop flag
 	bool quitMenu = false;
-
-	//Event handler
 	SDL_Event e;
 
 
@@ -73,8 +68,6 @@ bool MenuScene::Init(bool *m_quitGame, SDL_Renderer* m_renderer, TTF_Font* m_fon
 
 void MenuScene::RenderScreen() 
 {
-	printf("menu \n");
-
 	SDL_RenderClear(renderer);
 
 	testingText.Render();

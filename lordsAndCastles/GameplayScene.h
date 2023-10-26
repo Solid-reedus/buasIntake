@@ -10,15 +10,19 @@ class GameplayScene : public IScene
 	GameplayScene();
 	GameplayScene(SDL_Renderer* m_renderer, TTF_Font* m_font);
 	~GameplayScene();
-	void Update() override;
 	bool Init(bool *m_quitGame, SDL_Renderer* m_renderer, TTF_Font* m_font);
-	virtual void Clear() override;
 	
 	private:
+	virtual void Clear() override;
+	void Update() override;
+	void GameLogic();
 	virtual void RenderScreen() override;
 	SDL_Renderer* renderer;
 	TTF_Font* font;
-	bool *quitGame;
+	Text testingText;
+	bool* quitGame;
+
+
 
 };
 

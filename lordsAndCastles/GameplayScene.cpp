@@ -13,8 +13,6 @@ GameplayScene::GameplayScene(SDL_Renderer* m_renderer, TTF_Font* m_font)
 {
 	renderer = m_renderer;
 	font = m_font;
-
-	printf("menu scene\n");
 }
 
 GameplayScene::~GameplayScene()
@@ -22,11 +20,36 @@ GameplayScene::~GameplayScene()
 
 }
 
+void GameplayScene::GameLogic()
+{
+
+}
+
+
 void GameplayScene::Update()
 {
 
+	bool quitGameplay = false;
+	SDL_Event e;
 
-	RenderScreen();
+
+	while (!quitGameplay)
+	{
+		//Handle events on queue
+		while (SDL_PollEvent(&e) != 0)
+		{
+			if (e.type == SDL_QUIT)
+			{
+				quitGameplay = true;
+				*quitGame = true;
+				break;
+			}
+		}
+		GameLogic();
+		RenderScreen();
+	}
+
+	Clear();
 }
 
 bool GameplayScene::Init(bool *m_quitGame, SDL_Renderer* m_renderer, TTF_Font* m_font)
@@ -35,13 +58,12 @@ bool GameplayScene::Init(bool *m_quitGame, SDL_Renderer* m_renderer, TTF_Font* m
 	renderer = m_renderer;
 	font = m_font;
 
+	Update();
 	return true;
 }
 
 void GameplayScene::RenderScreen()
 {
-	printf("menu \n");
-
 	SDL_RenderClear(renderer);
 
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);

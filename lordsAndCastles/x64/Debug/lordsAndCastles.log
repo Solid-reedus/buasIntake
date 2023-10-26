@@ -1,3 +1,2 @@
-﻿  Text.cpp
-C:\Users\dogef\Documents\C++ project\buasIntake\buasIntake\lordsAndCastles\Text.cpp(46,35): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+﻿  GameplayScene.cpp
   lordsAndCastles.vcxproj -> C:\Users\dogef\Documents\C++ project\buasIntake\buasIntake\lordsAndCastles\x64\Debug\lordsAndCastles.exe
