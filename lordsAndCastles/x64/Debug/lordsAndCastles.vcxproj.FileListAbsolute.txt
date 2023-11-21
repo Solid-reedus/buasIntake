@@ -1,2 +1,0 @@
-C:\Users\dogef\Documents\C++ project\buasIntake\buasIntake\game\lordsAndCastles\x64\Debug\lordsAndCastles.exe
-C:\Users\dogef\Documents\C++ project\buasIntake\buasIntake\lordsAndCastles\x64\Debug\lordsAndCastles.exe
