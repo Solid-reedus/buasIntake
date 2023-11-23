@@ -6,6 +6,8 @@
 
 std::unique_ptr<BaseScene> currentScene = nullptr;
 
+
+
 namespace Tmpl8
 {
 	void Game::Init()
@@ -19,8 +21,22 @@ namespace Tmpl8
 
 	}
 
+	void Game::KeyDown(int key)
+	{
+		// notify currentScene that key is pressed
+	}
+
+	void Game::MouseDown(int button, int x, int y)
+	{
+		currentScene->MouseDown(button, x, y);
+		printf("buttom: %d  where: x=%d y=%d \n", button, x, y);
+	}
+
 	void Game::Tick(float deltaTime)
 	{
+
+
+
 		screen->Clear(0);
 		currentScene->Update();
 	}

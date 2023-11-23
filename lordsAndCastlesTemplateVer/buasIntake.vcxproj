@@ -222,6 +222,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="MenuScene.cpp" />
@@ -230,6 +231,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseHeader.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="BaseScene.h" />
@@ -237,6 +239,7 @@
     <ClInclude Include="Scenes.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />
+    <ClInclude Include="UiHeader.h" />
     <ClInclude Include="VectorHeader.h" />
   </ItemGroup>
   <ItemGroup>
