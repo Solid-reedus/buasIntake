@@ -5,32 +5,42 @@
 #include "UiHeader.h"
 #include "surface.h"
 #include "Event.h"
-#include "SDL.h"
-
+#include "game.h"
 
 namespace Tmpl8
 {
+	// Forward declaration
+	class Game;
+
 	class MenuScene : public BaseScene
 	{
 		public:
-		MenuScene(Surface* m_surface);
+
+		MenuScene(Surface* surface, Game* game);
 		~MenuScene() override;
 
 		void InitScene() override;
 		void Update() override;
 		void Delete() override;
-		void KeyDown(int m_key) override;
-		void MouseDown(int m_button, int m_x, int m_y) override;
+		void KeyDown(int key) override;
+		void MouseDown(int button, int x, int y) override;
+		
 
 		private:
-		//Sprite* rotatingGun;
-		//int frame;
-		Surface* surface;
 
-		Event menuClickEvents;
-		int mouseBtnInput, mouseX, mouseY;
+		//preset colors
+		const Pixel k_red = 0xff4444;
+		const Pixel k_grey = 0x808080;
+		const Pixel k_gold = 0xFFD700;
 
-		Button testBtn;
+		Surface* m_ptrSurface;
+		GameScene m_scene = menuScn;
+
+		Event m_menuClickEvents;
+		int m_mouseBtnInput, m_mouseX, m_mouseY;
+
+		Button m_playGamebtn;
+		Game* m_ptrGame;
 
 	};
 }

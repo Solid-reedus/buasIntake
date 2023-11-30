@@ -237,6 +237,7 @@
     <ClInclude Include="BaseScene.h" />
     <ClInclude Include="MenuScene.h" />
     <ClInclude Include="Scenes.h" />
+    <ClInclude Include="SpriteSheet.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />
     <ClInclude Include="UiHeader.h" />

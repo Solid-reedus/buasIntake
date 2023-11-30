@@ -3,6 +3,7 @@
 #include <memory>
 #include <iostream>
 #include <cstdio> //printf
+#include <functional>
 
 struct Rect
 {

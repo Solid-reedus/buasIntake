@@ -50,6 +50,9 @@
     <ClInclude Include="UiHeader.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="SpriteSheet.h">
+      <Filter>sprites</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">
@@ -66,6 +69,9 @@
     </Filter>
     <Filter Include="UI">
       <UniqueIdentifier>{5a8fd42c-6272-4881-82c5-457d6fee1b14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sprites">
+      <UniqueIdentifier>{3371d2b0-9e4c-4a92-a471-11f65438cdb3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -1,21 +1,16 @@
 #include "game.h"
-#include "surface.h"
-#include "BaseScene.h"
-#include "BaseHeader.h"
-#include "Scenes.h"
-
-std::unique_ptr<BaseScene> currentScene = nullptr;
-
 
 
 namespace Tmpl8
 {
 	void Game::Init()
 	{
-		// init first scene
-		currentScene = std::make_unique<MenuScene>(screen);
+		m_ptrCurrentScene = std::make_unique<MenuScene>(m_ptrScreen, (Tmpl8::Game*)this);
+		m_ptrCurrentScene->InitScene();
 	}
-	
+
+
+
 	void Game::Shutdown()
 	{
 
@@ -26,18 +21,34 @@ namespace Tmpl8
 		// notify currentScene that key is pressed
 	}
 
+
 	void Game::MouseDown(int button, int x, int y)
 	{
-		currentScene->MouseDown(button, x, y);
-		printf("buttom: %d  where: x=%d y=%d \n", button, x, y);
+		m_ptrCurrentScene->MouseDown(button, x, y);
+		//printf("buttom: %d  where: x=%d y=%d \n", button, x, y);
 	}
 
 	void Game::Tick(float deltaTime)
 	{
+		m_ptrScreen->Clear(0);
+		m_ptrCurrentScene->Update();
+	}
 
+	void Game::ChangeScene(GameScene newScene)
+	{
+		switch (newScene)
+		{
+				
+			break;
+			case menuScn:
+			break;
+			case gameplayScn:
+			break;
+			case noneScn:
+			default:
+			break;
+		}
+		printf("ChangeScene \n");
 
-
-		screen->Clear(0);
-		currentScene->Update();
 	}
 };

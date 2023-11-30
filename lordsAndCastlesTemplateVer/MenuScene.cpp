@@ -2,29 +2,20 @@
 
 namespace Tmpl8
 {
-
-	MenuScene::MenuScene(Surface* m_surface)
+	MenuScene::MenuScene(Surface* p_ptrSurface, Game* p_ptrGame)
 	{
-		surface = m_surface;
-		mouseBtnInput = 0;
-		mouseX = 0;
-		mouseY = 0;
+		m_ptrSurface = p_ptrSurface;
+		m_ptrGame = p_ptrGame;
+		m_mouseBtnInput = 0;
+		m_mouseX = 0;
+		m_mouseY = 0;
 
 		printf("current scene is menu \n");
 
-		testBtn = Button();
-
-		InitScene();
-
 		// load ui
-		// init foreach button a lambda/funtion
-		// init click events for the scene
-		
-		
-		
-		//rotatingGun = new Sprite(new Surface("assets/aagun.tga"), 36);
-		//frame = 0;
+		m_playGamebtn = Button({ 100, 100, 200, 100 }, k_grey, m_ptrSurface);
 	}
+
 
 	MenuScene::~MenuScene()
 	{
@@ -33,23 +24,31 @@ namespace Tmpl8
 
 	void MenuScene::InitScene()
 	{
-		//testBtn = Button({100, 500, 200, 100}, 0xff00ff, surface, "test", 0x00ffff);
-		testBtn = Button({100, 500, 200, 100}, 0xff0044, surface);
 
+		// init foreach button a lambda/funtion
+		#pragma region init button events
 
-		menuClickEvents += [&]()
-		{
-			if (mouseBtnInput == 1)
+			m_menuClickEvents += [&]()
 			{
-				testBtn.OnClick(mouseX, mouseY);
-			}
-		};
+				if (m_mouseBtnInput == 1)
+				{
+					m_playGamebtn.OnClick(m_mouseX, m_mouseY);
+				}
+			};
 
-		testBtn.event += []()
-		{
-			printf("click \n");
-		};
+		#pragma endregion
 
+
+		// init click events for the scene
+		#pragma region add buttons to the scene events
+
+			m_playGamebtn.event += [&]()
+			{
+				//printf("click \n");
+				m_ptrGame->ChangeScene(gameplayScn);
+			};
+
+		#pragma endregion
 
 	}
 
@@ -58,28 +57,18 @@ namespace Tmpl8
 
 	}
 
-	void MenuScene::MouseDown(int m_button, int m_x, int m_y)
+	void MenuScene::MouseDown(int p_button, int p_x, int p_y)
 	{
-		mouseBtnInput = m_button;
-		mouseX = m_x;
-		mouseY = m_y;
-		menuClickEvents.Invoke();
+		m_mouseBtnInput = p_button;
+		m_mouseX = p_x;
+		m_mouseY = p_y;
+		m_menuClickEvents.Invoke();
 	}
 
 	void MenuScene::Update()
 	{
-
-		surface->Print("hello world", 2, 2, 0xffffff);
-
-		surface->Box(100, 100, 300, 200, 0xffffff);
-		surface->Bar(400, 400, 700, 500, 0xffffff);
-
-		testBtn.RenderBtn();
-
-		// draw a sprite
-		//rotatingGun->SetFrame(frame);
-		//rotatingGun->Draw(surface, 100, 100);
-		//if (++frame == 36) frame = 0;
+		m_ptrSurface->Print("hello world", 2, 2, k_gold);
+		m_playGamebtn.RenderBtn();
 	}
 
 

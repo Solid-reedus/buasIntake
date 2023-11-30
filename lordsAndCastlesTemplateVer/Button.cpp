@@ -3,35 +3,35 @@
 
 Button::Button()
 {
-	rect = { 0,0,0,0 };
-	btnColor = 0;
-	textColor = 0;
+	m_rect = { 0,0,0,0 };
+	m_btnColor = 0;
+	m_textColor = 0;
 
-	surface = nullptr;
-	text = nullptr;
+	m_ptrSurface = nullptr;
+	m_ptrText = nullptr;
 }
 
-Button::Button(const Rect m_rect, const Tmpl8::Pixel m_btnColor, Tmpl8::Surface* m_surface)
+Button::Button(const Rect p_rect, const Tmpl8::Pixel p_btnColor, Tmpl8::Surface* p_ptrSurface)
 {
-	rect = m_rect;
-	btnColor = m_btnColor;
-	textColor = 0x000000;
-	surface = m_surface;
-	text = nullptr;
+	m_rect = p_rect;
+	m_btnColor = p_btnColor;
+	m_textColor = 0x000000;
+	m_ptrSurface = p_ptrSurface;
+	m_ptrText = nullptr;
 }
 
 void Button::RenderBtn()
 {
-	if (surface == nullptr)
+	if (m_ptrSurface == nullptr)
 	{
 		printf("button unasigned surface \n");
 		return;
 	}
 
-	surface->Bar(rect.x, rect.y, rect.x + rect.w, rect.y + rect.h, btnColor);
-	if (text != nullptr)
+	m_ptrSurface->Bar(m_rect.x, m_rect.y, m_rect.x + m_rect.w, m_rect.y + m_rect.h, m_btnColor);
+	if (m_ptrText != nullptr)
 	{
-		surface->Print(text, rect.x + 10, rect.y + 10, textColor);
+		m_ptrSurface->Print(m_ptrText, m_rect.x + 10, m_rect.y + 10, m_textColor);
 	}
 }
 
@@ -40,13 +40,12 @@ Button::~Button()
 
 }
 
-
-void Button::OnClick(const int m_x, const int m_y)
+void Button::OnClick(const int p_x, const int p_y)
 {
 	// if click pos is within the bounds of the rect
 	// then invoke every event tied to this instance of the button
-	if (m_x > rect.x && m_x < rect.x + rect.w &&
-		m_y > rect.y && m_y < rect.y + rect.h)
+	if (p_x > m_rect.x && p_x < m_rect.x + m_rect.w &&
+		p_y > m_rect.y && p_y < m_rect.y + m_rect.h)
 	{
 		event.Invoke();
 	}
