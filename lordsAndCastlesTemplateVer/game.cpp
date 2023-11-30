@@ -9,8 +9,6 @@ namespace Tmpl8
 		m_ptrCurrentScene->InitScene();
 	}
 
-
-
 	void Game::Shutdown()
 	{
 
@@ -21,11 +19,9 @@ namespace Tmpl8
 		// notify currentScene that key is pressed
 	}
 
-
 	void Game::MouseDown(int button, int x, int y)
 	{
 		m_ptrCurrentScene->MouseDown(button, x, y);
-		//printf("buttom: %d  where: x=%d y=%d \n", button, x, y);
 	}
 
 	void Game::Tick(float deltaTime)
@@ -34,21 +30,20 @@ namespace Tmpl8
 		m_ptrCurrentScene->Update();
 	}
 
-	void Game::ChangeScene(GameScene newScene)
+	void Game::ChangeScene(GameSceneEnum newScene)
 	{
 		switch (newScene)
 		{
-				
 			break;
 			case menuScn:
-			break;
+				m_ptrCurrentScene = std::move(std::make_unique<MenuScene>(m_ptrScreen, (Tmpl8::Game*)this));
+				break;
 			case gameplayScn:
+				m_ptrCurrentScene = std::move(std::make_unique<GameScene>(m_ptrScreen, (Tmpl8::Game*)this));
 			break;
 			case noneScn:
 			default:
 			break;
 		}
-		printf("ChangeScene \n");
-
 	}
 };

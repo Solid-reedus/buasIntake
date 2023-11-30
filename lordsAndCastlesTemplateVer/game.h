@@ -22,13 +22,13 @@ namespace Tmpl8
 		void MouseMove( int x, int y ) { /* implement if you want to detect mouse movement */ }
 		void KeyUp( int key ) { /* implement if you want to handle keys */ }
 		void KeyDown(int key);
-		void ChangeScene(GameScene newScene);
+		void ChangeScene(GameSceneEnum newScene);
 
 		private:
 
 		Surface* m_ptrScreen;
 		std::unique_ptr<BaseScene> m_ptrCurrentScene = nullptr;
-		GameScene m_currentSceneEnum = menuScn;
+		GameSceneEnum m_currentSceneEnum = menuScn;
 	};
 
 }; // namespace Tmpl8s

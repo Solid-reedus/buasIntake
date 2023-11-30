@@ -17,6 +17,9 @@
     <ClCompile Include="Button.cpp">
       <Filter>UI</Filter>
     </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
@@ -52,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="SpriteSheet.h">
       <Filter>sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

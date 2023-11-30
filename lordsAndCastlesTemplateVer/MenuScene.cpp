@@ -44,7 +44,6 @@ namespace Tmpl8
 
 			m_playGamebtn.event += [&]()
 			{
-				//printf("click \n");
 				m_ptrGame->ChangeScene(gameplayScn);
 			};
 

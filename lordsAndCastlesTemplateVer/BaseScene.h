@@ -1,12 +1,9 @@
 #pragma once
 
-//#include"game.h"
-
 // this is a way to give scenes a way to change the scene
 // in game 
 
-
-enum GameScene
+enum GameSceneEnum
 {
 	noneScn     = 0,
 	menuScn     = 1,

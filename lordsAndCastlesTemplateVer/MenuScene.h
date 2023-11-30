@@ -34,7 +34,7 @@ namespace Tmpl8
 		const Pixel k_gold = 0xFFD700;
 
 		Surface* m_ptrSurface;
-		GameScene m_scene = menuScn;
+		GameSceneEnum m_scene = menuScn;
 
 		Event m_menuClickEvents;
 		int m_mouseBtnInput, m_mouseX, m_mouseY;
