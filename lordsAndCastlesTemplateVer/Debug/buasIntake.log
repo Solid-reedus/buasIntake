@@ -1,2 +1,9 @@
-﻿  game.cpp
-  buasIntake.vcxproj -> C:\Users\dogef\Documents\C++ project\buasIntake\buasIntake\lordsAndCastlesTemplateVer\buasIntake_x64_debug.exe
+﻿  Button.cpp
+  Event.cpp
+  game.cpp
+  GameScene.cpp
+  MenuScene.cpp
+  surface.cpp
+  template.cpp
+  Generating Code...
+  buasIntake.vcxproj -> C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\buasIntake_x64_debug.exe
