@@ -1,11 +1,17 @@
-#pragma once
+#ifndef BASE_HEADER
+#define BASE_HEADER
 
-#include <memory>
 #include <iostream>
-#include <cstdio> //printf
+#include <vector>
+#include "cstdint"
+#include "string"
+#include <memory>
+#include <cstdio>
 #include <functional>
 
 struct Rect
 {
 	int x, y, w, h;
 };
+
+#endif
