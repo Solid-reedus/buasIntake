@@ -1,80 +1,51 @@
-﻿  Buidlings.cpp
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Buidlings.cpp(192,21): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Buidlings.cpp(314,21): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Button.cpp
-  Event.cpp
+﻿  game.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(67,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'game.cpp')
+  
   GameScene.cpp
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(62,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(67,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
   (compiling source file 'GameScene.cpp')
   
 C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(67,118): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(67,104): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   MenuScene.cpp
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(62,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(67,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
   (compiling source file 'MenuScene.cpp')
   
   PerspectiveMath.cpp
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\PerspectiveMath.cpp(6,29): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\PerspectiveMath.cpp(7,30): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\PerspectiveMath.cpp(17,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\PerspectiveMath.cpp(7,29): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\PerspectiveMath.cpp(8,30): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
 C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\PerspectiveMath.cpp(18,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\PerspectiveMath.cpp(41,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\PerspectiveMath.cpp(19,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
 C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\PerspectiveMath.cpp(42,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  SpriteSheet.cpp
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\SpriteSheet.cpp(47,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\SpriteSheet.cpp(48,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\SpriteSheet.cpp(65,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\SpriteSheet.cpp(66,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Tile.cpp
-  Tree.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\PerspectiveMath.cpp(43,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  template.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(67,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'template.cpp')
+  
   WorkerNpc.cpp
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(62,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(67,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
   (compiling source file 'WorkerNpc.cpp')
   
 C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(47,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(47,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(260,53): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(260,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(267,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(267,32): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(277,60): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(277,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(346,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(346,54): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(359,81): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(359,78): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(411,16): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
-  C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(411,16):
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(261,53): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(261,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(268,39): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(268,36): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(278,60): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(278,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(348,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(348,54): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(361,81): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(361,78): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(414,16): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
+  C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(414,16):
   consider using '%zd' in the format string
   
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(496,53): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(496,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(503,39): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(503,36): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(513,60): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(513,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(583,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(583,54): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(596,81): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(596,78): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(649,16): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
-  C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(649,16):
-  consider using '%zd' in the format string
-  
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(673,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(673,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(675,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(675,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  game.cpp
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(62,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'game.cpp')
-  
-  surface.cpp
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\surface.cpp(399,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\surface.cpp(400,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  template.cpp
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(62,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'template.cpp')
-  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(438,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(438,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(440,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(440,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Generating Code...
   buasIntake.vcxproj -> C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\buasIntake_x64_debug.exe

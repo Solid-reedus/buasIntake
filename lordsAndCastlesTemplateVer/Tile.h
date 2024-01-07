@@ -2,6 +2,7 @@
 
 #include "SpriteSheet.h"
 
+// enum for the properties of a tile
 enum TileFlags
 {
 	tlfNone		 = 0,
@@ -21,6 +22,7 @@ class Tile
 	TileFlags tileFlags;
 
 	private:
+	// tile save a index of a spritesheet
 	uint8_t m_row, m_col;
 	SpriteSheet* m_spriteSheet;
 };

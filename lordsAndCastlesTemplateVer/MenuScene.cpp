@@ -13,7 +13,8 @@ namespace Tmpl8
 		printf("current scene is menu \n");
 
 		// load ui
-		m_playGamebtn = Button({ 100, 100, 200, 100 }, k_grey, m_ptrSurface);
+		m_playGamebtn = Button({ 100, 200, 150, 75 }, k_grey, m_ptrSurface, "play", 3, k_red);
+		m_GoToHowToPlaysbtn = Button({ 100, 300, 150, 75 }, k_grey, m_ptrSurface, "how to play", 2, k_red);
 	}
 
 
@@ -66,8 +67,9 @@ namespace Tmpl8
 
 	void MenuScene::Update(float p_deltaTime)
 	{
-		m_ptrSurface->Print("hello world", 2, 2, k_gold);
+		m_ptrSurface->PrintScaled("lords and castles", ScreenWidth / 2 - 250, 50, k_gold, 5);
 		m_playGamebtn.RenderBtn();
+		m_GoToHowToPlaysbtn.RenderBtn();
 	}
 
 

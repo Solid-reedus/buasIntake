@@ -14,7 +14,8 @@ enum BuildingCurrentState
 	bldnStateActive = 2
 };
 
-
+// this is a base class 
+// it allows the buildings for abstraction and ease of use
 class BaseBuilding
 {
 	public:
@@ -38,7 +39,8 @@ class BaseBuilding
 	// m_textureSize is used for mesuring how big the texture should render
 	uint8_t m_width, m_height, m_textureSize;
 	std::vector<vector2Int>* m_ptrUnwalkableTiles;
-	float* m_ptrRelativeWidth, * m_ptrRelativeHeight;
+	//these ptr's point to relatative positions for rendering
+	float* m_ptrRelativeWidth, *m_ptrRelativeHeight;
 
 };
 
@@ -50,11 +52,9 @@ class IdleBuilding : public BaseBuilding
 	IdleBuilding(SpriteSheet* p_spriteSheet, vector2Int p_gridPos, uint8_t p_width, uint8_t p_height, 
 		std::vector<vector2Int>* p_ptrUnwalkableTiles, float* p_ptrRelativeWidth, float* p_ptrRelativeHeight);
 	~IdleBuilding();
-
 	void Update(float p_deltaTime) override;
 
 	private:
-	
 };
 
 // this building will either be idle (render 1 sprite) or animated

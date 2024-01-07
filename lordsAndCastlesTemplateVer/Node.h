@@ -26,6 +26,9 @@ class Node
         dis = a + b;
     }
 
+    // this variant of the node constructor is used for the second phase of the pathfinding
+    // when a path is found found and the shortest path should be chosen based on
+    // which node has the lowest m_step
     Node(vector2Int m_pos, vector2Int m_startPos, vector2Int m_endPos, uint16_t m_step)
     {
         step = m_step;
@@ -54,6 +57,8 @@ class Node
     int dis;
     int disFromStart;
 
+    // this method returns the euclidean distance from 2 dementional round vectors
+    // (kinda like drawing a straight line on a piece of paper and measuring it)
     int calculateEuclideanDistance(vector2Int pos1, vector2Int pos2)
     {
         double delta_x = pos2.x * 100 - pos1.x * 100;

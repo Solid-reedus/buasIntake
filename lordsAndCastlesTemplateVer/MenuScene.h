@@ -40,6 +40,7 @@ namespace Tmpl8
 		int m_mouseBtnInput, m_mouseX, m_mouseY;
 
 		Button m_playGamebtn;
+		Button m_GoToHowToPlaysbtn;
 		Game* m_ptrGame;
 
 	};

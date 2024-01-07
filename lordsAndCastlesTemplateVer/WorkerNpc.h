@@ -12,12 +12,6 @@
 #include <future>
 #include <mutex>
 
-
-/*
-const int NPC_WIDTH = 40;
-const int NPC_HEIGHT = 54;
-*/
-
 const int NPC_WIDTH = 68;
 const int NPC_HEIGHT = 92;
 
@@ -34,6 +28,8 @@ enum NpcLookDir
     npcWalkL = 7,
 };
 
+// this flag is used to detirmine in what direction the npc is going 
+// it is then used to render the correct row of frames to the corosponding dir
 enum NpcDirection
 {
     dirNone = 0,
@@ -43,6 +39,7 @@ enum NpcDirection
     dirLeft = 8
 };
 
+// this enum is used for the statemachine
 enum NpcCurrentState
 {
     npcStateNone = 0,
@@ -56,7 +53,6 @@ class WorkerNpc
 {
 	public:
     WorkerNpc();
-    //WorkerNpc(const WorkerNpc&);
 	WorkerNpc(SpriteSheet* p_spriteSheet, Tile** p_ptrMapArray, std::vector<vector2Int>* p_ptrUnwalkableTiles,
         vector2Int p_startPos, const vector2Int p_workStation, const vector2Int p_stockPile, BaseBuilding* p_ptrWorkStation,
         const float p_workTime, float* p_ptrRelativeWidth, float* p_ptrRelativeHeight, 
@@ -69,8 +65,7 @@ class WorkerNpc
 
 	private:
     //fill the m_path with positions to walk too
-    void FindPath(const vector2Int p_target);
-    std::vector<vector2Int> FindPath2(vector2Int p_target);
+    std::vector<vector2Int> FindPath(vector2Int p_target);
     void FindPathAsync(const vector2Int p_target, const NpcCurrentState p_newState);
     //check what dir the npc should look
     void Walk();
@@ -86,19 +81,27 @@ class WorkerNpc
     std::vector<vector2Int> m_path;
 
     uint8_t m_dirFlags = dirNone;
-    vector2 m_pos;
-    vector2Int m_gridPos;
 
+    // m_gridPos is the possition based on the cartesian map
+    // m_pos is relative to the isometric position
+    // cartesian and isometric views are explained in the PerspectiveMath.h file
+    vector2Int m_gridPos;
+    vector2 m_pos;
+
+    // the building the npc is tied to
     BaseBuilding* m_ptrWorkStation;
 
     // m_ptrMapArray and m_ptrUnwalkableTiles are for checking for walkable tiles
     Tile** m_ptrMapArray;
     std::vector<vector2Int>* m_ptrUnwalkableTiles;
 
+
     vector2Int m_workStation, m_stockPile;
     float m_workTime, m_tickTime = 0.0f, m_workingTimer = 0.0f, m_tickAnimTime = 0.0f, walkSpeed = 0.13f;
     uint8_t m_spritesheetColIndex = 0;
 
+    // m_ptrRecource and m_increaseRecourceAmount are tied to the
+    // players recources
     uint16_t* m_ptrRecource;
     uint16_t m_increaseRecourceAmount;
 

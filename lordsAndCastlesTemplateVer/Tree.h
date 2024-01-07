@@ -22,6 +22,7 @@ class Tree
 	std::vector<vector2Int>* m_ptrUnwalkableTiles;
 	float* m_ptrRelativeWidth, *m_ptrRelativeHeight;
 
+	// all the timber varables are used for when the tree should timber (fall over)
 	bool treeTimbers = false;
 	float m_tickAnimTime = 0.0f;
 	float m_timberDuration = 1200;
