@@ -1,0 +1,463 @@
+﻿  Buidlings.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Buidlings.cpp(192,21): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Buidlings.cpp(314,21): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Event.cpp
+  game.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(62,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'game.cpp')
+  
+  GameScene.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(62,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'GameScene.cpp')
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(68,118): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(68,104): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(97,34): error C2065: 'x': undeclared identifier
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(97,37): error C2065: 'y': undeclared identifier
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(101,39): error C2065: 'x': undeclared identifier
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(101,42): error C2065: 'y': undeclared identifier
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(105,35): error C2065: 'x': undeclared identifier
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(105,38): error C2065: 'y': undeclared identifier
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(109,40): error C2065: 'x': undeclared identifier
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(109,43): error C2065: 'y': undeclared identifier
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(116,19): error C2065: 'x': undeclared identifier
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(116,22): error C2065: 'y': undeclared identifier
+  MenuScene.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(62,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'MenuScene.cpp')
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.h(125,11): error C3646: 'uiAppleFarmRect': unknown override specifier
+  (compiling source file 'MenuScene.cpp')
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.h(125,27): error C2059: syntax error: '='
+  (compiling source file 'MenuScene.cpp')
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.h(125,29): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+  (compiling source file 'MenuScene.cpp')
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.h(126,11): error C3646: 'uiDairyFarmRect': unknown override specifier
+  (compiling source file 'MenuScene.cpp')
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.h(126,27): error C2059: syntax error: '='
+  (compiling source file 'MenuScene.cpp')
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.h(126,29): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+  (compiling source file 'MenuScene.cpp')
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.h(127,11): error C3646: 'uiHovelRect': unknown override specifier
+  (compiling source file 'MenuScene.cpp')
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.h(127,23): error C2059: syntax error: '='
+  (compiling source file 'MenuScene.cpp')
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.h(127,25): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+  (compiling source file 'MenuScene.cpp')
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.h(128,11): error C3646: 'uiWoodcutterRect': unknown override specifier
+  (compiling source file 'MenuScene.cpp')
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.h(128,28): error C2059: syntax error: '='
+  (compiling source file 'MenuScene.cpp')
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.h(128,30): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+  (compiling source file 'MenuScene.cpp')
+  
+  PerspectiveMath.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\PerspectiveMath.cpp(6,29): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\PerspectiveMath.cpp(7,30): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\PerspectiveMath.cpp(17,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\PerspectiveMath.cpp(18,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\PerspectiveMath.cpp(41,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\PerspectiveMath.cpp(42,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  SpriteSheet.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\SpriteSheet.cpp(47,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\SpriteSheet.cpp(48,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\SpriteSheet.cpp(65,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\SpriteSheet.cpp(66,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  surface.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\surface.cpp(399,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\surface.cpp(400,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  template.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(62,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\windef.h(160,7): error C2059: syntax error: ','
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\windef.h(162,23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(3299,20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(3358,25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(3392,25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(3441,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(3451,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(3816,69): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(3860,65): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(4079,59): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(4126,57): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(4211,58): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(4559,68): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(4560,65): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(4603,72): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(4848,110): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(4849,111): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(4857,84): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(4894,94): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(5153,115): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\wingdi.h(5154,115): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(1051,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(2698,23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(2980,13): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(3043,13): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(3074,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(3093,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(3094,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(3185,24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(3245,27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(3357,23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(4569,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(6378,30): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(6379,33): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(6723,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(6724,32): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(6736,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(7708,27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(7720,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(7744,19): error C2059: syntax error: '*'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(7996,11): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8196,13): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8208,13): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8255,13): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8269,13): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8577,15): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8617,11): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8633,25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8641,25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8664,25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8712,25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8713,25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8722,25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8723,25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8725,15): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8734,25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8735,25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8737,15): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(8987,11): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9000,11): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9012,13): error C2065: 'LPRECT': undeclared identifier
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9012,20): error C2146: syntax error: missing ')' before identifier 'lpRect'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9020,13): error C2065: 'LPRECT': undeclared identifier
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9020,20): error C2146: syntax error: missing ')' before identifier 'lpRect'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9036,13): error C2065: 'LPRECT': undeclared identifier
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9036,20): error C2146: syntax error: missing ')' before identifier 'lpRect'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9390,11): error C2065: 'LPRECT': undeclared identifier
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9390,18): error C2146: syntax error: missing ')' before identifier 'lpRect'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9537,25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9666,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9673,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9681,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9689,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9695,11): error C2065: 'LPRECT': undeclared identifier
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9695,18): error C2146: syntax error: missing ')' before identifier 'lprc'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9705,11): error C2065: 'LPRECT': undeclared identifier
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9705,18): error C2146: syntax error: missing ')' before identifier 'lprc'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9711,11): error C2065: 'LPRECT': undeclared identifier
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9711,18): error C2146: syntax error: missing ')' before identifier 'lprcDst'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9718,13): error C2065: 'LPRECT': undeclared identifier
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9718,20): error C2146: syntax error: missing ')' before identifier 'lprc'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9726,11): error C2065: 'LPRECT': undeclared identifier
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9726,18): error C2146: syntax error: missing ')' before identifier 'lprcDst'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9734,11): error C2065: 'LPRECT': undeclared identifier
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9734,18): error C2146: syntax error: missing ')' before identifier 'lprcDst'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9742,11): error C2065: 'LPRECT': undeclared identifier
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9742,18): error C2146: syntax error: missing ')' before identifier 'lprcDst'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9750,13): error C2065: 'LPRECT': undeclared identifier
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9750,20): error C2146: syntax error: missing ')' before identifier 'lprc'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9758,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9764,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9765,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(9771,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(11517,13): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(12185,25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(12194,25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(13580,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(13581,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(13639,57): error C2061: syntax error: identifier 'LPRECT'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(14342,20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(14612,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(14613,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(14638,20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(14653,20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(14655,40): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(14665,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(14688,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(14710,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(14711,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(15424,25): error C2059: syntax error: '*'
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\imm.h(56,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\imm.h(64,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\imm.h(210,27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'template.cpp')
+  
+  Tile.cpp
+  Tree.cpp
+  WorkerNpc.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(62,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'WorkerNpc.cpp')
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(67,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(67,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(289,53): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(289,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(296,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(296,32): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(306,60): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(306,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(375,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(375,54): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(388,81): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(388,78): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(440,16): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
+  C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(440,16):
+  consider using '%zd' in the format string
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(525,53): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(525,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(532,39): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(532,36): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(542,60): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(542,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(612,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(612,54): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(625,81): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(625,78): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(678,16): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
+  C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(678,16):
+  consider using '%zd' in the format string
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(702,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(702,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(704,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\WorkerNpc.cpp(704,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Generating Code...

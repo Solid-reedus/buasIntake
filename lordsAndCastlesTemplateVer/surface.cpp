@@ -13,6 +13,11 @@ void NotifyUser( char* s );
 char Surface::s_Font[51][5][6];	
 bool Surface::fontInitialized = false;
 
+int Clamp(int x, int min, int max)
+{
+	return x < min ? min : x > max ? max : x;
+}
+
 // -----------------------------------------------------------
 // True-color surface class implementation
 // -----------------------------------------------------------
@@ -24,6 +29,7 @@ Surface::Surface( int a_Width, int a_Height, Pixel* a_Buffer, int a_Pitch ) :
 	m_Pitch( a_Pitch )
 {
 }
+
 
 Surface::Surface( int a_Width, int a_Height ) :
 	m_Width( a_Width ),
@@ -197,8 +203,15 @@ void Surface::Box( int x1, int y1, int x2, int y2, Pixel c )
 	Line( (float)x1, (float)y1, (float)x1, (float)y2, c );
 }
 
+
+
 void Surface::Bar( int x1, int y1, int x2, int y2, Pixel c )
 {
+	x1 = Clamp(x1, 0, ScreenWidth - 1);
+	x2 = Clamp(x2, 0, ScreenWidth - 1);
+	y1 = Clamp(y1, 0, ScreenHeight - 1);
+	y2 = Clamp(y2, 0, ScreenHeight - 1);
+
 	Pixel* a = x1 + y1 * m_Pitch + m_Buffer;
 	for ( int y = y1; y <= y2; y++ )
 	{
@@ -343,6 +356,105 @@ void Surface::ScaleColor( unsigned int a_Scale )
 		m_Buffer[i] = rb + g;
 	}
 }
+
+void Surface::PrintScaled(char* a_String, int x1, int y1, Pixel color, int scale)
+{
+	if (!fontInitialized)
+	{
+		InitCharset();
+		fontInitialized = true;
+	}
+
+	// spacing
+	int charWidth = 6;
+
+	for (int i = 0; i < static_cast<int>(strlen(a_String)); i++)
+	{
+		long pos = 0;
+
+		if (a_String[i] >= 'A' && a_String[i] <= 'Z')
+		{
+			pos = s_Transl[static_cast<unsigned short>(a_String[i] - ('A' - 'a'))];
+		}
+		else
+		{
+			pos = s_Transl[static_cast<unsigned short>(a_String[i])];
+		}
+
+
+		char* fontData = reinterpret_cast<char*>(s_Font[pos]);
+
+		// loop through the fontData
+		for (size_t fonty = 0; fonty < 5; fonty++, fontData++)
+		{
+			for (size_t fontx = 0; fontx < 5; fontx++, fontData++)
+			{
+				// if its o then plot a pixel from x pos plus (char data * iteration)
+				if (*fontData == 'o')
+				{
+					for (int x = 0; x < scale; x++)
+					{
+						for (int y = 0; y < scale; y++)
+						{
+							int destX = x1 + i * charWidth * scale + fontx * scale + x;
+							int destY = y1 + fonty * scale + y;
+							m_Buffer[destX + destY * m_Pitch] = color;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+void Surface::RenderFrom(Surface* p_drawnSurf, Surface* p_UsedSurf,
+	int p_xPosWhere, int p_yPosWhere, int p_widthWhere, int p_heightWhere,
+	int p_xPosFrom, int p_yPosFrom, int p_widthFrom, int p_heightFrom)
+{
+
+
+	Tmpl8::Pixel* usedSurf = p_UsedSurf->GetBuffer();
+	Tmpl8::Pixel* drawnSurf = p_drawnSurf->GetBuffer();
+
+	float scaleX = static_cast<float>(p_widthFrom) / static_cast<float>(p_widthWhere);
+	float scaleY = static_cast<float>(p_heightFrom) / static_cast<float>(p_heightWhere);
+
+	for (int x = 0; x < p_widthWhere; x++)
+	{
+		int destX = x + p_xPosWhere;
+
+		if (destX > p_drawnSurf->GetWidth() - 1 || destX < 0)
+		{
+			continue;
+		}
+
+		for (int y = 0; y < p_heightWhere; y++)
+		{
+			int srcX = static_cast<int>(x * scaleX) + p_xPosFrom;
+			int srcY = static_cast<int>(y * scaleY) + p_yPosFrom;
+			int destY = y + p_yPosWhere;
+
+			if (destY > p_drawnSurf->GetHeight() - 1 || destY < 0)
+			{
+				continue;
+			}
+
+			if (srcX >= 0 && srcX < p_UsedSurf->GetWidth() && srcY >= 0 && srcY < p_UsedSurf->GetHeight())
+			{
+				Tmpl8::Pixel* newPixel = &usedSurf[srcX + srcY * p_UsedSurf->GetPitch()];
+
+				// Check for transparent pixels
+				if ((*newPixel & 0x000000ff) > 1)
+				{
+					drawnSurf[destX + destY * p_drawnSurf->GetPitch()] = *newPixel;
+				}
+			}
+		}
+	}
+}
+
+
 
 Sprite::Sprite( Surface* a_Surface, unsigned int a_NumFrames ) :
 	m_Width( static_cast<int>(a_Surface->GetWidth() / a_NumFrames) ),

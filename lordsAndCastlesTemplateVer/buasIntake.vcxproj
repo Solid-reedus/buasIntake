@@ -255,7 +255,6 @@
     <ClInclude Include="template.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Tree.h" />
-    <ClInclude Include="UiHeader.h" />
     <ClInclude Include="VectorHeader.h" />
     <ClInclude Include="WorkerNpc.h" />
   </ItemGroup>

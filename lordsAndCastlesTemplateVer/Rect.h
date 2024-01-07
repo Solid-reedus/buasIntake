@@ -1,7 +1,9 @@
 #ifndef RECT
 #define RECT
 
-struct Rect
+#include "BaseHeader.h"
+
+struct RectInt
 {
 	public:
 	int x;

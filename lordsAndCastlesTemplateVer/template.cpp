@@ -369,6 +369,9 @@ int main( int argc, char **argv )
 		game->Tick( elapsedTime );
 		// event loop
 		SDL_Event event;
+		int mouseX = 0;
+		int mouseY = 0;
+
 		while (SDL_PollEvent( &event )) 
 		{
 			switch (event.type)
@@ -382,22 +385,23 @@ int main( int argc, char **argv )
 					exitapp = 1;
 					// find other keys here: http://sdl.beuc.net/sdl.wiki/SDLKey
 				}
-				game->KeyDown( event.key.keysym.scancode);
+				game->KeyDown(event.key.keysym.sym);
 				break;
 			case SDL_KEYUP:
-				game->KeyUp( event.key.keysym.scancode );
+				game->KeyUp(event.key.keysym.sym);
 				break;
 			case SDL_MOUSEMOTION:
-				game->MouseMove( event.motion.xrel, event.motion.yrel );
+				SDL_GetMouseState(&mouseX, &mouseY);
+				game->MouseMove(mouseX, mouseY);
 				break;
 			case SDL_MOUSEBUTTONUP:
-				game->MouseUp( event.button.button );
+				SDL_GetMouseState(&mouseX, &mouseY);
+				game->MouseUp(event.button.button, mouseX, mouseY);
 				break;
 			case SDL_MOUSEBUTTONDOWN:
 
-				int posX, posY;
-				SDL_GetMouseState(&posX, &posY);
-				game->MouseDown( event.button.button, posX, posY);
+				SDL_GetMouseState(&mouseX, &mouseY);
+				game->MouseDown(event.button.button, mouseX, mouseY);
 				break;
 			default:
 				break;

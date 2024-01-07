@@ -3,13 +3,13 @@
 #include "Event.h"
 #include "BaseHeader.h"
 #include "surface.h"
-//#include "Rect.h"
+#include "Rect.h"
 
 class Button
 {
 	public:
 	Button();
-	Button(const Rect p_rect, const Tmpl8::Pixel p_btnColor, Tmpl8::Surface* p_ptrSurface);
+	Button(const RectInt p_rect, const Tmpl8::Pixel p_btnColor, Tmpl8::Surface* p_ptrSurface);
 	~Button();
 	void SetText(char* p_ptrText, Tmpl8::Pixel p_textColor = 0xffffff);
 	void SetImage();
@@ -19,7 +19,7 @@ class Button
 
 
 	private:
-	Rect m_rect;
+	RectInt m_rect;
 	//surface is from surface.h
 	Tmpl8::Surface* m_ptrSurface;
 	Tmpl8::Pixel m_btnColor;

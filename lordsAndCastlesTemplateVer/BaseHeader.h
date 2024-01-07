@@ -8,10 +8,7 @@
 #include <memory>
 #include <cstdio>
 #include <functional>
+#include <windows.h>
 
-struct Rect
-{
-	int x, y, w, h;
-};
 
 #endif

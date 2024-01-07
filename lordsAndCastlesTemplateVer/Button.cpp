@@ -11,7 +11,7 @@ Button::Button()
 	m_ptrText = nullptr;
 }
 
-Button::Button(const Rect p_rect, const Tmpl8::Pixel p_btnColor, Tmpl8::Surface* p_ptrSurface)
+Button::Button(const RectInt p_rect, const Tmpl8::Pixel p_btnColor, Tmpl8::Surface* p_ptrSurface)
 {
 	m_rect = p_rect;
 	m_btnColor = p_btnColor;
@@ -44,8 +44,7 @@ void Button::OnClick(const int p_x, const int p_y)
 {
 	// if click pos is within the bounds of the rect
 	// then invoke every event tied to this instance of the button
-	if (p_x > m_rect.x && p_x < m_rect.x + m_rect.w &&
-		p_y > m_rect.y && p_y < m_rect.y + m_rect.h)
+	if (m_rect.IsInside(p_x, p_y))
 	{
 		event.Invoke();
 	}

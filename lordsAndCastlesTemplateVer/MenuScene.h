@@ -2,10 +2,10 @@
 
 #include "BaseHeader.h"
 #include "BaseScene.h"
-#include "UiHeader.h"
 #include "surface.h"
 #include "Event.h"
 #include "game.h"
+#include "Button.h"
 
 namespace Tmpl8
 {
@@ -20,9 +20,9 @@ namespace Tmpl8
 		~MenuScene() override;
 
 		void InitScene() override;
-		void Update() override;
+		void Update(float p_deltaTime) override;
 		void Delete() override;
-		void KeyDown(int key) override;
+		void KeyDown(SDL_Keycode key) override;
 		void MouseDown(int button, int x, int y) override;
 		
 

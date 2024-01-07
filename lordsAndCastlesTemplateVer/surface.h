@@ -65,6 +65,13 @@ public:
 	void Box( int x1, int y1, int x2, int y2, Pixel color );
 	void Bar( int x1, int y1, int x2, int y2, Pixel color );
 	void Resize( Surface* a_Orig );
+
+	//costum
+	void RenderFrom(Surface* p_drawnSurf, Surface* p_UsedSurf,
+		int p_xPosWhere, int p_yPosWhere, int p_widthWhere, int p_heightWhere,
+		int p_xPosFrom, int p_yPosFrom, int p_widthFrom, int p_heightFrom);
+	void PrintScaled(char* a_String, int x1, int y1, Pixel color, int scale);
+
 private:
 	// Attributes
 	Pixel* m_Buffer{nullptr};	

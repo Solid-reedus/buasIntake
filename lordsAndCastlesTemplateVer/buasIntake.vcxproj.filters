@@ -8,17 +8,35 @@
     <ClCompile Include="template.cpp">
       <Filter>template code</Filter>
     </ClCompile>
-    <ClCompile Include="MenuScene.cpp">
-      <Filter>scenes</Filter>
-    </ClCompile>
     <ClCompile Include="Event.cpp">
       <Filter>common</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>UI</Filter>
-    </ClCompile>
     <ClCompile Include="GameScene.cpp">
       <Filter>scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteSheet.cpp">
+      <Filter>rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Tree.cpp">
+      <Filter>actors\props</Filter>
+    </ClCompile>
+    <ClCompile Include="PerspectiveMath.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="Buidlings.cpp">
+      <Filter>actors\buildings</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkerNpc.cpp">
+      <Filter>actors\npc</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuScene.cpp">
+      <Filter>scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -35,9 +53,6 @@
     <ClInclude Include="BaseScene.h">
       <Filter>scenes</Filter>
     </ClInclude>
-    <ClInclude Include="MenuScene.h">
-      <Filter>scenes</Filter>
-    </ClInclude>
     <ClInclude Include="Scenes.h">
       <Filter>scenes</Filter>
     </ClInclude>
@@ -47,17 +62,41 @@
     <ClInclude Include="VectorHeader.h">
       <Filter>math</Filter>
     </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>UI</Filter>
-    </ClInclude>
-    <ClInclude Include="UiHeader.h">
-      <Filter>UI</Filter>
-    </ClInclude>
     <ClInclude Include="SpriteSheet.h">
-      <Filter>sprites</Filter>
+      <Filter>rendering</Filter>
     </ClInclude>
     <ClInclude Include="GameScene.h">
       <Filter>scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalVars.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Tree.h">
+      <Filter>actors\props</Filter>
+    </ClInclude>
+    <ClInclude Include="PerspectiveMath.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="Buidlings.h">
+      <Filter>actors\buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkerNpc.h">
+      <Filter>actors\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuScene.h">
+      <Filter>scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -76,8 +115,20 @@
     <Filter Include="UI">
       <UniqueIdentifier>{5a8fd42c-6272-4881-82c5-457d6fee1b14}</UniqueIdentifier>
     </Filter>
-    <Filter Include="sprites">
+    <Filter Include="rendering">
       <UniqueIdentifier>{3371d2b0-9e4c-4a92-a471-11f65438cdb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="actors">
+      <UniqueIdentifier>{6a17fe8d-027c-4b36-bc69-577c353d39c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="actors\npc">
+      <UniqueIdentifier>{0a846834-d40f-432f-9201-b7bb36f28bfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="actors\buildings">
+      <UniqueIdentifier>{51360c2f-bbcd-445e-8675-c8b5a1d64dc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="actors\props">
+      <UniqueIdentifier>{0c591301-68ad-4c85-a3c0-2f04276d5c5b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -2,9 +2,9 @@
 
 #include "BaseHeader.h"
 #include "Scenes.h"
-#include "surface.h"
 #include "BaseScene.h"
-#include <functional>
+#include "surface.h"
+#include "SDL.h"
 
 
 namespace Tmpl8 
@@ -16,12 +16,15 @@ namespace Tmpl8
 		void SetTarget( Surface* surface ) { m_ptrScreen = surface; }
 		void Init();
 		void Shutdown();
-		void Tick( float deltaTime );
-		void MouseUp( int button ) { /* implement if you want to detect mouse button presses */ }
+		void Tick(float deltaTime);
+		void MouseUp(int button, int x, int y);
 		void MouseDown(int button, int x, int y);
-		void MouseMove( int x, int y ) { /* implement if you want to detect mouse movement */ }
-		void KeyUp( int key ) { /* implement if you want to handle keys */ }
-		void KeyDown(int key);
+		void MouseMove(int x, int y);
+		void KeyUp(SDL_Keycode  key);
+		void KeyDown(SDL_Keycode key);
+
+
+
 		void ChangeScene(GameSceneEnum newScene);
 
 		private:
@@ -29,6 +32,8 @@ namespace Tmpl8
 		Surface* m_ptrScreen;
 		std::unique_ptr<BaseScene> m_ptrCurrentScene = nullptr;
 		GameSceneEnum m_currentSceneEnum = menuScn;
+
+
 	};
 
 }; // namespace Tmpl8s

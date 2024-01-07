@@ -64,7 +64,7 @@ namespace Tmpl8
 		m_menuClickEvents.Invoke();
 	}
 
-	void MenuScene::Update()
+	void MenuScene::Update(float p_deltaTime)
 	{
 		m_ptrSurface->Print("hello world", 2, 2, k_gold);
 		m_playGamebtn.RenderBtn();

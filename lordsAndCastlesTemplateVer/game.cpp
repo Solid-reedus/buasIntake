@@ -14,9 +14,10 @@ namespace Tmpl8
 
 	}
 
-	void Game::KeyDown(int key)
+	void Game::KeyDown(SDL_Keycode key)
 	{
 		// notify currentScene that key is pressed
+		m_ptrCurrentScene->KeyDown(key);
 	}
 
 	void Game::MouseDown(int button, int x, int y)
@@ -24,10 +25,28 @@ namespace Tmpl8
 		m_ptrCurrentScene->MouseDown(button, x, y);
 	}
 
+	void Game::MouseUp(int button, int x, int y)
+	{
+
+	}
+
+	void Game::MouseMove(int x, int y)
+	{
+
+	}
+
+	void Game::KeyUp(SDL_Keycode  key)
+	{
+		//void KeyUp(SDL_Keycode  key)
+	}
+
+
+
+
 	void Game::Tick(float deltaTime)
 	{
 		m_ptrScreen->Clear(0);
-		m_ptrCurrentScene->Update();
+		m_ptrCurrentScene->Update(deltaTime);
 	}
 
 	void Game::ChangeScene(GameSceneEnum newScene)

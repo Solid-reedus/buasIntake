@@ -26,26 +26,6 @@ WorkerNpc::WorkerNpc()
     m_increaseRecourceAmount = 0;
 }
 
-/*
-WorkerNpc::WorkerNpc(const WorkerNpc& a) {
-    m_spriteSheet = a.m_spriteSheet;
-    m_ptrMapArray = a.m_ptrMapArray;
-    m_ptrRelativeWidth = a.m_ptrRelativeWidth;
-    m_ptrRelativeHeight = a.m_ptrRelativeHeight;
-    m_ptrUnwalkableTiles = a.m_ptrUnwalkableTiles;
-    m_ptrRecource = a.m_ptrRecource;
-
-    m_pos = a.m_pos;
-    m_workStation = a.m_workStation;
-    m_stockPile = a.m_stockPile;
-
-    m_workTime = a.m_workTime;
-    m_increaseRecourceAmount = a.m_increaseRecourceAmount;
-
-    m_state = a.m_state;
-}
-*/
-
 WorkerNpc::WorkerNpc(SpriteSheet* p_spriteSheet, Tile** p_ptrMapArray, std::vector<vector2Int>* p_ptrUnwalkableTiles,
     vector2Int p_startPos, const vector2Int p_workStation, const vector2Int p_stockPile, BaseBuilding* p_ptrWorkStation,
     const float p_workTime, float* p_ptrRelativeWidth, float* p_ptrRelativeHeight,
@@ -118,15 +98,6 @@ void WorkerNpc::Update(float p_deltaTime)
 
 void WorkerNpc::Tick(float p_deltaTime)
 {
-    if (!m_path.empty())
-    {
-        //printf("path %d \n", m_path.size());
-    }
-    else
-    {
-        //printf("empty \n");
-    }
-
     printf("state %d \n", m_state);
 
 	//update stuff
