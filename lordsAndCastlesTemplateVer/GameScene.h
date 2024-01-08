@@ -68,6 +68,7 @@ namespace Tmpl8
 
 		private:
 
+		void GameEventsTick(float p_deltaTime);
 		void renderTiles();
 		void DrawUI();
 		void PlaceBuilding(int x, int y);
@@ -102,6 +103,9 @@ namespace Tmpl8
 		uint16_t playerMaxPopulation = 150;
 
 		int8_t playerPopulairity = 70;
+
+		const float GameEventsTickInterval = 3000.0f;
+		float GameEventsTickTime = 0.0f;
 
 		std::vector<char*> warnings;
 		float warningDuration = 1500;

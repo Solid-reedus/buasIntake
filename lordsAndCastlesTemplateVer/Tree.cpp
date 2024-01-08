@@ -34,7 +34,7 @@ Tree::~Tree()
 
 void Tree::Timber()
 {
-	m_state = treestateGone;
+	m_state = treestateTimber;
 	m_tickAnimTime = 0;
 }
 
@@ -42,14 +42,12 @@ void Tree::Timber()
 void Tree::Update(float p_deltaTime)
 {
 
-	m_tickAnimTime += p_deltaTime;
-
 	switch (m_state)
 	{
 		case treestateIdle:
 		{
 			int isoX, isoY;
-			// tree has a  - 17 and - 5 because the tree spritesheet also contains it timbering
+			// tree has a  - 14 and - 5 because the tree spritesheet also contains it timbering
 			// which offsets the tree inside the spritesheet
 			CartesianToIsometric(m_gridPos.x - 14, m_gridPos.y - 5, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
 			m_spriteSheetIdle->RenderFrom(isoX, isoY, TILE_WIDTH * 6, TILE_HEIGHT * 10, 0, 0);
@@ -58,7 +56,8 @@ void Tree::Update(float p_deltaTime)
 		case treestateGone:
 		{
 
-			printf("m_tickAnimTime = %f \n", m_tickAnimTime);
+			m_tickAnimTime += p_deltaTime;
+
 			if (m_tickAnimTime > m_growTime)
 			{
 				m_state = treestateIdle;
@@ -68,7 +67,6 @@ void Tree::Update(float p_deltaTime)
 		}
 		case treestateTimber:
 		{
-			/*
 			m_tickAnimTime += p_deltaTime;
 			if (m_tickAnimTime >= m_timberDuration)
 			{
@@ -83,21 +81,9 @@ void Tree::Update(float p_deltaTime)
 				CartesianToIsometric(m_gridPos.x - 14, m_gridPos.y - 5, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
 				m_spriteSheetIdle->RenderFrom(isoX, isoY, TILE_WIDTH * 6, TILE_HEIGHT * 10, 0, currentframe);
 			}
-			printf("m_tickAnimTime val %f \n", m_tickAnimTime);
-
-			else
-			{
-				int isoX, isoY;
-				int currentframe = static_cast<int>(m_tickAnimTime) * m_spriteSheetTimber->RowColCount(0) / m_timberDuration;
-
-
-				//printf("current frame = %d \n", currentframe);
-				//FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
-				CartesianToIsometric(m_gridPos.x - 14, m_gridPos.y - 5, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
-				m_spriteSheetIdle->RenderFrom(isoX, isoY, TILE_WIDTH * 6, TILE_HEIGHT * 10, 0, currentframe);
-			}
-			*/
+			
 		}
+
 		case treestateNone:
 		break;
 	}

@@ -39,8 +39,8 @@ class Tree
 
 	TreeStates m_state = treestateIdle;
 	float m_tickAnimTime = 0.0f;
-	float m_timberDuration = 1200;
-	float m_growTime = 10000;
+	float m_timberDuration = 1200.0f;
+	float m_growTime = 10000.0f;
 };
 
 #endif

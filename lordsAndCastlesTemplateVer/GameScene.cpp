@@ -543,7 +543,6 @@ namespace Tmpl8
 
 	}
 
-
 	void GameScene::Update(float p_deltaTime)
 	{
 		m_deltaTime = p_deltaTime;
@@ -560,17 +559,18 @@ namespace Tmpl8
 		}
 
 		renderTiles();
+		//FoodTick(p_deltaTime);
 
 
 		for (BaseNpc* npc : npcVector)
 		{
 			npc->Update(p_deltaTime);
 		}
-		for (Tree tree : trees)
+
+		for (Tree &tree : trees)
 		{
 			tree.Update(p_deltaTime);
 		}
-
 
 		granary.Update(p_deltaTime);
 		keep.Update(p_deltaTime);
@@ -593,6 +593,23 @@ namespace Tmpl8
 
 	void GameScene::Delete()
 	{
+
+	}
+
+	void GameScene::GameEventsTick(float p_deltaTime)
+	{
+		GameEventsTickTime += p_deltaTime;
+		if (GameEventsTickTime > GameEventsTickInterval)
+		{
+			if (!npcVector.empty())
+			{
+				playerFood -= npcVector.size();
+				playerGold += npcVector.size() * 5;
+			}
+
+			GameEventsTickTime = 0;
+		}
+
 
 	}
 
