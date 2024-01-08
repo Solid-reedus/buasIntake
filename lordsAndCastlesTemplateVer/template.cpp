@@ -403,6 +403,11 @@ int main( int argc, char **argv )
 				SDL_GetMouseState(&mouseX, &mouseY);
 				game->MouseDown(event.button.button, mouseX, mouseY);
 				break;
+			case SDL_MOUSEWHEEL:
+			{
+				game->MouseScroll(event.wheel.y);
+				break;
+			}
 			default:
 				break;
 			}

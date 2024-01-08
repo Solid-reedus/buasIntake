@@ -6,10 +6,6 @@ namespace Tmpl8
 	{
 		m_ptrSurface = p_ptrSurface;
 		m_ptrGame = p_ptrGame;
-		//m_mouseBtnInput = 0;
-		//m_mouseX = 0;
-		//m_mouseY = 0;
-
 
 		SpritesheetArray[0] = new SpriteSheet(m_ptrSurface, new Surface("assets/cheesfarmerspritesheet6x10row2col14.png"), 2, 15),
 		SpritesheetArray[1] = new SpriteSheet(m_ptrSurface, new Surface("assets/appleFarms8x8pritesheet1x7.png"), 1, 7),
@@ -22,7 +18,6 @@ namespace Tmpl8
 		SpritesheetArray[8] = new SpriteSheet(m_ptrSurface, new Surface("assets/tileSheet.png"), 1, 3),
 		SpritesheetArray[9] = new SpriteSheet(m_ptrSurface, new Surface("assets/treeSpriteSheet1x15.png"), 1, 15),
 		SpritesheetArray[10] = new SpriteSheet(m_ptrSurface, new Surface("assets/treeSingleSpriteSheet1x1.png"), 1, 1),
-
 
 		SpritesheetArray[sprDairyFarm]->SetCollumCountOfRow(static_cast<uint8_t>(bldnStateIdle), 14);
 		SpritesheetArray[sprDairyFarm]->SetCollumCountOfRow(static_cast<uint8_t>(bldnStateActive), 14);
@@ -73,7 +68,48 @@ namespace Tmpl8
 
 	GameScene::~GameScene()
 	{
-		
+		for (BaseBuilding* building : buildings)
+		{
+			delete building;
+		}
+		buildings.clear();
+
+		for (WorkerNpc* npc : npcVector)
+		{
+			delete npc;
+		}
+		npcVector.clear();
+
+		if (grassTile != nullptr)
+		{
+			delete grassTile;
+			grassTile = nullptr;
+		}
+		if (sandTile != nullptr)
+		{
+			delete sandTile;
+			sandTile = nullptr;
+		}
+		if (waterTile != nullptr)
+		{
+			delete waterTile;
+			waterTile = nullptr;
+		}
+		if (tilesArray != nullptr)
+		{
+			delete[] tilesArray;
+			tilesArray = nullptr;
+		}
+
+
+		//for (SpriteSheet* sheet : SpritesheetArray)
+		//{
+		//	if (sheet != nullptr)
+		//	{
+		//		delete sheet;
+		//	}
+		//}
+
 	}
 
 	void GameScene::InitScene()
@@ -417,21 +453,27 @@ namespace Tmpl8
 		char goldText[10];
 		char woodText[10];
 		char foodText[10];
-		char stoneText[10];
+		char populationText[60];
 		char populairityText[3];
+
+		//population
+		//999/999
 
 		sprintf(goldText, "gold %d", playerGold);
 		sprintf(woodText, "wood %d", playerWood);
 		sprintf(foodText, "food %d", playerFood);
-		sprintf(stoneText, "stone %d", playerStone);
+		sprintf(populationText, "%d/%d", playerPopulation, playerMaxPopulation);
 		sprintf(populairityText, "%d", playerPopulairity);
 
 
-		m_ptrSurface->PrintScaled(populairityText, ScreenWidth - interfacebannerWidth / 2 - 40, ScreenHeight - interfacebannerWidth + 10, 0x18C800, 4);
-		m_ptrSurface->PrintScaled(goldText, ScreenWidth - interfacebannerWidth, ScreenHeight - interfacebannerWidth + 40, 0xB8C330, 2);
-		m_ptrSurface->PrintScaled(woodText, ScreenWidth - interfacebannerWidth, ScreenHeight - interfacebannerWidth + 60, 0x9E620E, 2);
-		m_ptrSurface->PrintScaled(foodText, ScreenWidth - interfacebannerWidth, ScreenHeight - interfacebannerWidth + 80, 0xC81B1B, 2);
-		m_ptrSurface->PrintScaled(stoneText, ScreenWidth - interfacebannerWidth, ScreenHeight - interfacebannerWidth + 100, 0xD1D1D1, 2);
+		m_ptrSurface->PrintScaled(populairityText, ScreenWidth - interfacebannerWidth / 2 - 40, ScreenHeight - interfacebannerWidth - 5, 0x18C800, 4);
+		m_ptrSurface->PrintScaled(goldText, ScreenWidth - interfacebannerWidth, ScreenHeight - interfacebannerWidth + 20, 0xB8C330, 2);
+		m_ptrSurface->PrintScaled(woodText, ScreenWidth - interfacebannerWidth, ScreenHeight - interfacebannerWidth + 40, 0x9E620E, 2);
+		m_ptrSurface->PrintScaled(foodText, ScreenWidth - interfacebannerWidth, ScreenHeight - interfacebannerWidth + 60, 0xC81B1B, 2);
+		
+
+		m_ptrSurface->PrintScaled("population", ScreenWidth - interfacebannerWidth - 10, ScreenHeight - interfacebannerWidth + 80, 0xD1D1D1, 2);
+		m_ptrSurface->PrintScaled(populationText, ScreenWidth - interfacebannerWidth, ScreenHeight - interfacebannerWidth + 100, 0xD1D1D1, 2);
 
 	}
 
@@ -478,6 +520,10 @@ namespace Tmpl8
 		DrawUI();
 	}
 
+	void GameScene::MouseScroll(int y)
+	{
+
+	}
 
 	void GameScene::Delete()
 	{

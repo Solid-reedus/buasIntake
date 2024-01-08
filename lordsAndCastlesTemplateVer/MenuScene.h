@@ -24,7 +24,7 @@ namespace Tmpl8
 		void Delete() override;
 		void KeyDown(SDL_Keycode key) override;
 		void MouseDown(int button, int x, int y) override;
-		
+		void MouseScroll(int y) override;
 
 		private:
 

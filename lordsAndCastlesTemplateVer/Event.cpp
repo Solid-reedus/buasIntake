@@ -18,6 +18,18 @@ void Event::Invoke()
     }
 }
 
+void Event::InvokeCopy()
+{
+    std::vector<EventHandler> h = handlers;
+    for (const auto& handler : h)
+    {
+        if (handler)
+        {
+            handler();
+        }
+    }
+}
+
 void Event::Clear()
 {
     handlers.clear();

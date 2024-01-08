@@ -396,8 +396,20 @@ void Surface::PrintScaled(char* a_String, int x1, int y1, Pixel color, int scale
 					{
 						for (int y = 0; y < scale; y++)
 						{
+
 							int destX = x1 + i * charWidth * scale + fontx * scale + x;
 							int destY = y1 + fonty * scale + y;
+
+							if (destX >= ScreenWidth || destY >= ScreenHeight)
+							{
+								break;
+							}
+
+							if (destX < 0 || destY < 0)
+							{
+								continue;
+							}
+
 							m_Buffer[destX + destY * m_Pitch] = color;
 						}
 					}

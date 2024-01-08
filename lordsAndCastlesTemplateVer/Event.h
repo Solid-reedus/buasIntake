@@ -13,6 +13,7 @@ class Event
 	// operator+= is able to add new events to the EventHandler vector
 	void operator+=(const EventHandler& handler);
 	void Invoke();
+	void InvokeCopy();
 	void Clear();
 
 	private:

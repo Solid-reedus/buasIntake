@@ -61,7 +61,7 @@ namespace Tmpl8
 		void Delete() override;
 		void KeyDown(SDL_Keycode key) override;
 		void MouseDown(int button, int x, int y) override;
-
+		void MouseScroll(int y) override;
 
 		private:
 
@@ -94,7 +94,9 @@ namespace Tmpl8
 		uint16_t playerGold = 9995;
 		uint16_t playerWood = 1100;
 		uint16_t playerFood = 430;
-		uint16_t playerStone = 150;
+		uint16_t playerPopulation = 100;
+		uint16_t playerMaxPopulation = 150;
+
 		int8_t playerPopulairity = 70;
 
 		std::vector<char*> warnings;

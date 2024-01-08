@@ -35,6 +35,11 @@ namespace Tmpl8
 
 	}
 
+	void Game::MouseScroll(int y)
+	{
+		m_ptrCurrentScene->MouseScroll(y);
+	}
+
 	void Game::KeyUp(SDL_Keycode  key)
 	{
 		//void KeyUp(SDL_Keycode  key)
@@ -55,14 +60,23 @@ namespace Tmpl8
 		{
 			break;
 			case menuScn:
+				printf("changed scene to menu \n");
 				m_ptrCurrentScene = std::move(std::make_unique<MenuScene>(m_ptrScreen, (Tmpl8::Game*)this));
 				break;
 			case gameplayScn:
+				printf("changed scene to game \n");
 				m_ptrCurrentScene = std::move(std::make_unique<GameScene>(m_ptrScreen, (Tmpl8::Game*)this));
+				break;
+			case howToPlayScn:
+				printf("changed scene to how to play \n");
+				m_ptrCurrentScene = std::move(std::make_unique<HowToPlayScene>(m_ptrScreen, (Tmpl8::Game*)this));
+				break;
 			break;
 			case noneScn:
 			default:
 			break;
 		}
+
+		m_ptrCurrentScene->InitScene();
 	}
 };

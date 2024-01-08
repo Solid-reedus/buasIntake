@@ -1,5 +1,6 @@
 #include "MenuScene.h"
 
+
 namespace Tmpl8
 {
 	MenuScene::MenuScene(Surface* p_ptrSurface, Game* p_ptrGame)
@@ -34,6 +35,7 @@ namespace Tmpl8
 				if (m_mouseBtnInput == 1)
 				{
 					m_playGamebtn.OnClick(m_mouseX, m_mouseY);
+					m_GoToHowToPlaysbtn.OnClick(m_mouseX, m_mouseY);
 				}
 			};
 
@@ -46,6 +48,10 @@ namespace Tmpl8
 			m_playGamebtn.event += [&]()
 			{
 				m_ptrGame->ChangeScene(gameplayScn);
+			};
+			m_GoToHowToPlaysbtn.event += [&]()
+			{
+				m_ptrGame->ChangeScene(howToPlayScn);
 			};
 
 		#pragma endregion
@@ -62,7 +68,10 @@ namespace Tmpl8
 		m_mouseBtnInput = p_button;
 		m_mouseX = p_x;
 		m_mouseY = p_y;
-		m_menuClickEvents.Invoke();
+
+		// m_menuClickEvents needs to be invoked by InvokeCopy
+		// because the memory could be destroyed while its still busy and cause a error
+		m_menuClickEvents.InvokeCopy();
 	}
 
 	void MenuScene::Update(float p_deltaTime)
@@ -72,6 +81,10 @@ namespace Tmpl8
 		m_GoToHowToPlaysbtn.RenderBtn();
 	}
 
+	void MenuScene::MouseScroll(int y)
+	{
+
+	}
 
 	void MenuScene::Delete()
 	{

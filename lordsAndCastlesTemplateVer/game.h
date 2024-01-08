@@ -20,6 +20,7 @@ namespace Tmpl8
 		void MouseUp(int button, int x, int y);
 		void MouseDown(int button, int x, int y);
 		void MouseMove(int x, int y);
+		void MouseScroll(int y);
 		void KeyUp(SDL_Keycode  key);
 		void KeyDown(SDL_Keycode key);
 
