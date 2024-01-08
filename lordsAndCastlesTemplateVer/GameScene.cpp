@@ -18,11 +18,13 @@ namespace Tmpl8
 		SpritesheetArray[8] = new SpriteSheet(m_ptrSurface, new Surface("assets/tileSheet.png"), 1, 3),
 		SpritesheetArray[9] = new SpriteSheet(m_ptrSurface, new Surface("assets/treeSpriteSheet1x15.png"), 1, 15),
 		SpritesheetArray[10] = new SpriteSheet(m_ptrSurface, new Surface("assets/treeSingleSpriteSheet1x1.png"), 1, 1),
+		SpritesheetArray[11] = new SpriteSheet(m_ptrSurface, new Surface("assets/woodCutterSpritesv6.png"), 9, 55),
 
 		SpritesheetArray[sprDairyFarm]->SetCollumCountOfRow(static_cast<uint8_t>(bldnStateIdle), 14);
 		SpritesheetArray[sprDairyFarm]->SetCollumCountOfRow(static_cast<uint8_t>(bldnStateActive), 14);
 
 		SpritesheetArray[sprAppleFarm]->SetCollumCountOfRow(0, 7);
+		SpritesheetArray[sprTreeTimber]->SetCollumCountOfRow(0, 14);
 
 		SpritesheetArray[sprFarmer]->SetCollumCountOfRow(static_cast<uint8_t>(npcWalkTL), 55);
 		SpritesheetArray[sprFarmer]->SetCollumCountOfRow(static_cast<uint8_t>(npcWalkT), 55);
@@ -33,6 +35,17 @@ namespace Tmpl8
 		SpritesheetArray[sprFarmer]->SetCollumCountOfRow(static_cast<uint8_t>(npcWalkB), 55);
 		SpritesheetArray[sprFarmer]->SetCollumCountOfRow(static_cast<uint8_t>(npcWalkBL), 55);
 		SpritesheetArray[sprFarmer]->SetCollumCountOfRow(static_cast<uint8_t>(npcWalkL), 55);
+
+		SpritesheetArray[sprWoodCutter]->SetCollumCountOfRow(static_cast<uint8_t>(npcWalkTL), 55);
+		SpritesheetArray[sprWoodCutter]->SetCollumCountOfRow(static_cast<uint8_t>(npcWalkT), 55);
+		SpritesheetArray[sprWoodCutter]->SetCollumCountOfRow(static_cast<uint8_t>(npcWalkTR), 55);
+		SpritesheetArray[sprWoodCutter]->SetCollumCountOfRow(static_cast<uint8_t>(npcWalkR), 55);
+		SpritesheetArray[sprWoodCutter]->SetCollumCountOfRow(static_cast<uint8_t>(npcWalkTR), 55);
+		SpritesheetArray[sprWoodCutter]->SetCollumCountOfRow(static_cast<uint8_t>(npcWalkBR), 55);
+		SpritesheetArray[sprWoodCutter]->SetCollumCountOfRow(static_cast<uint8_t>(npcWalkB), 55);
+		SpritesheetArray[sprWoodCutter]->SetCollumCountOfRow(static_cast<uint8_t>(npcWalkBL), 55);
+		SpritesheetArray[sprWoodCutter]->SetCollumCountOfRow(static_cast<uint8_t>(npcWalkL), 55);
+		SpritesheetArray[sprWoodCutter]->SetCollumCountOfRow(static_cast<uint8_t>(npcWork), 44);
 
 		grassTile = new Tile(SpritesheetArray[sprTileSheet], 0, 0, tlfwalkable);
 		sandTile = new Tile(SpritesheetArray[sprTileSheet], 0, 1, tlfwalkable);
@@ -74,7 +87,7 @@ namespace Tmpl8
 		}
 		buildings.clear();
 
-		for (WorkerNpc* npc : npcVector)
+		for (BaseNpc* npc : npcVector)
 		{
 			delete npc;
 		}
@@ -186,7 +199,7 @@ namespace Tmpl8
 				}
 				else if (uiWoodcutterRect.IsInside(p_x, p_y))
 				{
-					//m_selectedBuilding = buildingAppleFarm;
+					m_selectedBuilding = buildingWoodCutterHut;
 				}
 			}
 			else
@@ -418,6 +431,59 @@ namespace Tmpl8
 			buildings.push_back(newBuilding);
 			break;
 		}
+		case buildingWoodCutterHut:
+		{
+			if (playerWood - woodcuttersHutstats.buildCost < 0)
+			{
+				warnings.push_back("not enough wood");
+				printf("not enough wood \n");
+				return;
+			}
+
+			playerWood -= woodcuttersHutstats.buildCost;
+
+			int cartX, cartY;
+			IsometricToCartesian(x, y, TILE_WIDTH, TILE_HEIGHT, cartX, cartY, relativeWidth, relativeHeight);
+
+			if (cartX < 1 || cartX + woodcuttersHutstats.width > MAP_WIDTH ||
+				cartY < 1 || cartY + woodcuttersHutstats.height + 1 > MAP_HEIGHT)
+			{
+				return;
+			}
+
+			for (int i = cartX; i < cartX + woodcuttersHutstats.width; i++)
+			{
+				for (int j = cartY; j < cartY + woodcuttersHutstats.height; j++)
+				{
+					// if the pos that is clicked plus the size of the 
+					// building overlap with a unwalkable tile or other building
+					// then it will not be build
+					if (!(tilesArray[i + (j * MAP_HEIGHT)]->tileFlags & tlfwalkable) ||
+						std::find(unwalkableTiles.begin(), unwalkableTiles.end(),
+							vector2Int(i, j)) != unwalkableTiles.end())
+					{
+						warnings.push_back("cant place it here my lord");
+						printf("dairy farm is unable to be placed at %d %d \n", cartX, cartY);
+						return;
+					}
+				}
+			}
+
+			IdleBuilding* newBuilding = new IdleBuilding(SpritesheetArray[sprWoodCutterHut],
+				vector2Int(cartX, cartY), woodcuttersHutstats.width, woodcuttersHutstats.height,
+				&unwalkableTiles, &relativeWidth, &relativeHeight);
+
+			buildings.push_back(newBuilding);
+
+			npcVector.push_back(new WoodCutterNpc(SpritesheetArray[sprWoodCutter], tilesArray,
+				&unwalkableTiles, spawnPos,
+				stockpilePos, 5000,
+				&relativeWidth, &relativeHeight,
+				&playerWood, 30, &trees));
+
+
+			break;
+		}
 
 		default:
 		case buildingNone:
@@ -447,7 +513,7 @@ namespace Tmpl8
 		SpritesheetArray[sprAppleFarm]->RenderFrom(20, ScreenHeight - interfacebannerWidth + 20, 80, 80, 0, 0);
 		SpritesheetArray[sprDairyFarm]->RenderFrom(120, ScreenHeight - interfacebannerWidth + 20, 80, 80, 1, 0);
 		SpritesheetArray[sprHovel]->RenderFrom(220, ScreenHeight - interfacebannerWidth + 25, 70, 70, 0, 0);
-		SpritesheetArray[sprWoodCutter]->RenderFrom(310, ScreenHeight - interfacebannerWidth + 25, 70, 70, 0, 0);
+		SpritesheetArray[sprWoodCutterHut]->RenderFrom(310, ScreenHeight - interfacebannerWidth + 25, 70, 70, 0, 0);
 
 
 		char goldText[10];
@@ -496,7 +562,7 @@ namespace Tmpl8
 		renderTiles();
 
 
-		for (WorkerNpc* npc : npcVector)
+		for (BaseNpc* npc : npcVector)
 		{
 			npc->Update(p_deltaTime);
 		}

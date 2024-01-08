@@ -9,7 +9,7 @@
 
 #include "SpriteSheet.h"
 #include "Tile.h"
-#include "WorkerNpc.h"
+#include "Npc.h"
 #include "PerspectiveMath.h"
 #include "Buidlings.h"
 #include "Tree.h"
@@ -21,13 +21,14 @@ enum BuildingEnum
 	buildingAppleFarm,
 	buildingDairyFarm,
 	buildinghovel,
+	buildingWoodCutterHut
 };
 
 enum SpriteSheetIndex
 {
 	sprDairyFarm,
 	sprAppleFarm,
-	sprWoodCutter,
+	sprWoodCutterHut,
 	sprFarmer,
 	sprStockPile,
 	sprGranary,
@@ -36,7 +37,9 @@ enum SpriteSheetIndex
 	sprTileSheet,
 	sprTreeIdle,
 	sprTreeTimber,
+	sprWoodCutter,
 };
+
 
 struct buildingStats
 {
@@ -77,11 +80,11 @@ namespace Tmpl8
 		Game* m_ptrGame;
 
 		//WorkerNpc and BaseBuilding are heap memory
-		std::vector<WorkerNpc*> npcVector;
+		std::vector<BaseNpc*> npcVector;
 		std::vector<BaseBuilding*> buildings;
 
 		BuildingEnum m_selectedBuilding = buildingDairyFarm;
-		SpriteSheet* SpritesheetArray[11];
+		SpriteSheet* SpritesheetArray[12];
 
 		IdleBuilding granary = IdleBuilding();
 		IdleBuilding keep = IdleBuilding();
@@ -90,6 +93,7 @@ namespace Tmpl8
 		const buildingStats appleFarmstats = { 8, 8, 20 };
 		const buildingStats dairyFarmstats = { 8, 6, 15 };
 		const buildingStats hovelstats = { 4, 5, 6 };
+		const buildingStats woodcuttersHutstats = { 2, 3, 5 };
 
 		uint16_t playerGold = 9995;
 		uint16_t playerWood = 1100;
@@ -103,7 +107,7 @@ namespace Tmpl8
 		float warningDuration = 1500;
 		float warningTime = 0;
 
-		const vector2Int stockpilePos = vector2Int(29, MAP_WIDTH - 40);
+		const vector2Int stockpilePos = vector2Int(56, 42);
 		const vector2Int granaryPos = vector2Int(53, 56);
 		const vector2Int applefarmPos = vector2Int(30, 40);
 		const vector2Int spawnPos = vector2Int(66, 61);

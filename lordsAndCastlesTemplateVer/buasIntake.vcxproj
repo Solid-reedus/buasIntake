@@ -235,7 +235,7 @@
     <ClCompile Include="template.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="Tree.cpp" />
-    <ClCompile Include="WorkerNpc.cpp" />
+    <ClCompile Include="Npc.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseHeader.h" />
@@ -258,7 +258,7 @@
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Tree.h" />
     <ClInclude Include="VectorHeader.h" />
-    <ClInclude Include="WorkerNpc.h" />
+    <ClInclude Include="Npc.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="_readme.txt" />

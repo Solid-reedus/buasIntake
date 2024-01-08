@@ -29,7 +29,7 @@
     <ClCompile Include="Buidlings.cpp">
       <Filter>actors\buildings</Filter>
     </ClCompile>
-    <ClCompile Include="WorkerNpc.cpp">
+    <ClCompile Include="Npc.cpp">
       <Filter>actors\npc</Filter>
     </ClCompile>
     <ClCompile Include="MenuScene.cpp">
@@ -92,7 +92,7 @@
     <ClInclude Include="Buidlings.h">
       <Filter>actors\buildings</Filter>
     </ClInclude>
-    <ClInclude Include="WorkerNpc.h">
+    <ClInclude Include="Npc.h">
       <Filter>actors\npc</Filter>
     </ClInclude>
     <ClInclude Include="MenuScene.h">
