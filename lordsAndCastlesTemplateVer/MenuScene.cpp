@@ -86,6 +86,11 @@ namespace Tmpl8
 
 	}
 
+	void MenuScene::MouseMove(int p_x, int p_y)
+	{
+
+	}
+
 	void MenuScene::Delete()
 	{
 

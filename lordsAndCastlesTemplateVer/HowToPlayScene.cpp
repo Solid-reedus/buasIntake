@@ -98,6 +98,11 @@ namespace Tmpl8
 
 	}
 
+	void HowToPlayScene::MouseMove(int p_x, int p_y)
+	{
+
+	}
+
 	void HowToPlayScene::MouseScroll(int y)
 	{
 

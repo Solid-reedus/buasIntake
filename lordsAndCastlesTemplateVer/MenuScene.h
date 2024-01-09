@@ -25,6 +25,7 @@ namespace Tmpl8
 		void KeyDown(SDL_Keycode key) override;
 		void MouseDown(int button, int x, int y) override;
 		void MouseScroll(int y) override;
+		void MouseMove(int p_x, int p_y) override;
 
 		private:
 

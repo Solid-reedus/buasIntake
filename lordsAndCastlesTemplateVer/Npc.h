@@ -95,7 +95,7 @@ public:
     WorkerNpc(SpriteSheet* p_spriteSheet, Tile** p_ptrMapArray, std::vector<vector2Int>* p_ptrUnwalkableTiles,
         vector2Int p_startPos, const vector2Int p_workStation, const vector2Int p_stockPile, BaseBuilding* p_ptrWorkStation,
         const float p_workTime, float* p_ptrRelativeWidth, float* p_ptrRelativeHeight,
-        uint16_t* p_refRecource, uint16_t p_increaseRecourceAmount);
+        uint32_t* p_refRecource, uint32_t p_increaseRecourceAmount);
     ~WorkerNpc();
 
     //general npc update
@@ -112,8 +112,8 @@ private:
     vector2Int m_workStation, m_stockPile;
     uint8_t m_spritesheetColIndex = 0;
 
-    uint16_t* m_ptrRecource;
-    uint16_t m_increaseRecourceAmount;
+    uint32_t* m_ptrRecource;
+    uint32_t m_increaseRecourceAmount;
 };
 
 class WoodCutterNpc : public BaseNpc
@@ -122,7 +122,7 @@ public:
     WoodCutterNpc::WoodCutterNpc();
     WoodCutterNpc::WoodCutterNpc(SpriteSheet* p_spriteSheet, Tile** p_ptrMapArray, std::vector<vector2Int>* p_ptrUnwalkableTiles,
         vector2Int p_startPos, const vector2Int p_stockPile, const float p_workTime, float* p_ptrRelativeWidth,
-        float* p_ptrRelativeHeight, uint16_t* p_refRecource, uint16_t p_increaseRecourceAmount, std::vector<Tree>* p_ptrTrees);
+        float* p_ptrRelativeHeight, uint32_t* p_refRecource, uint32_t p_increaseRecourceAmount, std::vector<Tree>* p_ptrTrees);
 
     WoodCutterNpc::~WoodCutterNpc();
 
@@ -139,8 +139,8 @@ private:
     vector2Int m_stockPile;
     uint8_t m_spritesheetColIndex = 0;
 
-    uint16_t* m_ptrRecource;
-    uint16_t m_increaseRecourceAmount;
+    uint32_t* m_ptrRecource;
+    uint32_t m_increaseRecourceAmount;
 
     std::vector<Tree>* m_ptrTrees;
     Tree* m_ptrCurrentTree = nullptr;

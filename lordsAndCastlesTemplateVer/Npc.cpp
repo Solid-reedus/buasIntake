@@ -364,7 +364,7 @@ WorkerNpc::WorkerNpc()
 WorkerNpc::WorkerNpc(SpriteSheet* p_spriteSheet, Tile** p_ptrMapArray, std::vector<vector2Int>* p_ptrUnwalkableTiles,
     vector2Int p_startPos, const vector2Int p_workStation, const vector2Int p_stockPile, BaseBuilding* p_ptrWorkStation,
     const float p_workTime, float* p_ptrRelativeWidth, float* p_ptrRelativeHeight,
-    uint16_t* p_refRecource, uint16_t p_increaseRecourceAmount)
+    uint32_t* p_refRecource, uint32_t p_increaseRecourceAmount)
 {
     m_spriteSheet = p_spriteSheet;
     m_ptrMapArray = p_ptrMapArray;
@@ -549,7 +549,7 @@ WoodCutterNpc::WoodCutterNpc()
 
 WoodCutterNpc::WoodCutterNpc(SpriteSheet* p_spriteSheet, Tile** p_ptrMapArray, std::vector<vector2Int>* p_ptrUnwalkableTiles,
     vector2Int p_startPos, const vector2Int p_stockPile, const float p_workTime, float* p_ptrRelativeWidth,
-    float* p_ptrRelativeHeight, uint16_t* p_refRecource, uint16_t p_increaseRecourceAmount, std::vector<Tree>* p_ptrTrees)
+    float* p_ptrRelativeHeight, uint32_t* p_refRecource, uint32_t p_increaseRecourceAmount, std::vector<Tree>* p_ptrTrees)
 {
     m_spriteSheet = p_spriteSheet;
     m_ptrMapArray = p_ptrMapArray;

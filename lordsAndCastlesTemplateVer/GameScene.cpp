@@ -114,7 +114,6 @@ namespace Tmpl8
 			tilesArray = nullptr;
 		}
 
-
 		//for (SpriteSheet* sheet : SpritesheetArray)
 		//{
 		//	if (sheet != nullptr)
@@ -208,10 +207,6 @@ namespace Tmpl8
 			}
 
 		}
-		//m_mouseBtnInput = p_button;
-		//m_mouseX = p_x;
-		//m_mouseY = p_y;
-		//m_menuClickEvents.Invoke();
 	}
 
 	void GameScene::renderTiles()
@@ -271,222 +266,235 @@ namespace Tmpl8
 
 	void GameScene::PlaceBuilding(int x, int y)
 	{
+		if (npcVector.size() >= playerMaxPopulation && m_selectedBuilding != buildinghovel)
+		{
+			warnings.push_back("not enough homes my lord. please build houses");
+			return;
+		}
+
 		switch (m_selectedBuilding)
 		{
-		case buildingAppleFarm:
-		{
-			if (playerWood - appleFarmstats.buildCost < 0)
+			case buildingAppleFarm:
 			{
-				warnings.push_back("not enough wood");
-				printf("not enough wood \n");
-				return;
-			}
-
-			playerWood -= appleFarmstats.buildCost;
-
-			int cartX, cartY;
-			IsometricToCartesian(x, y, TILE_WIDTH, TILE_HEIGHT, cartX, cartY, relativeWidth, relativeHeight);
-
-			if (cartX < 1 || cartX + appleFarmstats.width > MAP_WIDTH ||
-				cartY < 1 || cartY + appleFarmstats.height + 1 > MAP_HEIGHT)
-			{
-				return;
-			}
-
-			for (int i = cartX; i < cartX + appleFarmstats.width; i++)
-			{
-				for (int j = cartY; j < cartY + appleFarmstats.height; j++)
+				if (static_cast<int>(playerWood - appleFarmstats.buildCost) < 0)
 				{
-					// if the pos that is clicked plus the size of the 
-					// building overlap with a unwalkable tile or other building
-					// then it will not be build
-					if (!(tilesArray[i + (j * MAP_HEIGHT)]->tileFlags & tlfwalkable) ||
-						std::find(unwalkableTiles.begin(), unwalkableTiles.end(),
-							vector2Int(i, j)) != unwalkableTiles.end())
+					warnings.push_back("not enough wood");
+					printf("not enough wood \n");
+					return;
+				}
+
+
+				int cartX, cartY;
+				IsometricToCartesian(x, y, TILE_WIDTH, TILE_HEIGHT, cartX, cartY, relativeWidth, relativeHeight);
+
+
+
+				if (cartX < mapPadding || cartX + appleFarmstats.width > MAP_WIDTH - mapPadding ||
+					cartY < mapPadding || cartY + appleFarmstats.height + 1 > MAP_HEIGHT - mapPadding)
+				{
+					return;
+				}
+
+				for (int i = cartX; i < cartX + appleFarmstats.width; i++)
+				{
+					for (int j = cartY; j < cartY + appleFarmstats.height; j++)
 					{
-						warnings.push_back("cant place it here my lord");
-						printf("applefarm is unable to be placed at %d %d \n", cartX, cartY);
-						return;
+						// if the pos that is clicked plus the size of the 
+						// building overlap with a unwalkable tile or other building
+						// then it will not be build
+						if (!(tilesArray[i + (j * MAP_HEIGHT)]->tileFlags & tlfwalkable) ||
+							std::find(unwalkableTiles.begin(), unwalkableTiles.end(),
+								vector2Int(i, j)) != unwalkableTiles.end())
+						{
+							warnings.push_back("cant place it here my lord");
+							printf("applefarm is unable to be placed at %d %d \n", cartX, cartY);
+							return;
+						}
 					}
 				}
+
+				playerWood -= appleFarmstats.buildCost;
+				IdleAnimBuidling* newBuilding = new IdleAnimBuidling(SpritesheetArray[sprAppleFarm],
+					vector2Int(cartX, cartY), appleFarmstats.width, appleFarmstats.height,
+					5000, &unwalkableTiles, &relativeWidth, &relativeHeight);
+
+				buildings.push_back(newBuilding);
+				npcVector.push_back(new WorkerNpc(SpritesheetArray[sprFarmer], tilesArray,
+					&unwalkableTiles,
+					spawnPos,
+					newBuilding->GetEntryPos(),
+					granaryPos,
+					newBuilding, 5000,
+					&relativeWidth, &relativeHeight,
+					&playerFood, 10));
+
+				break;
 			}
 
-			IdleAnimBuidling* newBuilding = new IdleAnimBuidling(SpritesheetArray[sprAppleFarm],
-				vector2Int(cartX, cartY), appleFarmstats.width, appleFarmstats.height,
-				5000, &unwalkableTiles, &relativeWidth, &relativeHeight);
-
-			buildings.push_back(newBuilding);
-			npcVector.push_back(new WorkerNpc(SpritesheetArray[sprFarmer], tilesArray,
-				&unwalkableTiles,
-				spawnPos,
-				newBuilding->GetEntryPos(),
-				granaryPos,
-				newBuilding, 5000,
-				&relativeWidth, &relativeHeight,
-				&playerFood, 10));
-
-			break;
-		}
-
-		case buildingDairyFarm:
-		{
-			if (playerWood - dairyFarmstats.buildCost < 0)
+			case buildingDairyFarm:
 			{
-				warnings.push_back("not enough wood");
-				printf("not enough wood \n");
-				return;
-			}
-
-			playerWood -= dairyFarmstats.buildCost;
-
-			int cartX, cartY;
-			IsometricToCartesian(x, y, TILE_WIDTH, TILE_HEIGHT, cartX, cartY, relativeWidth, relativeHeight);
-
-			if (cartX < 1 || cartX + dairyFarmstats.width > MAP_WIDTH ||
-				cartY < 1 || cartY + dairyFarmstats.height + 1 > MAP_HEIGHT)
-			{
-				return;
-			}
-
-			for (int i = cartX; i < cartX + dairyFarmstats.width; i++)
-			{
-				for (int j = cartY; j < cartY + dairyFarmstats.height; j++)
+				if (static_cast<int>(playerWood - dairyFarmstats.buildCost) < 0)
 				{
-					// if the pos that is clicked plus the size of the 
-					// building overlap with a unwalkable tile or other building
-					// then it will not be build
-					if (!(tilesArray[i + (j * MAP_HEIGHT)]->tileFlags & tlfwalkable) ||
-						std::find(unwalkableTiles.begin(), unwalkableTiles.end(),
-							vector2Int(i, j)) != unwalkableTiles.end())
+					warnings.push_back("not enough wood");
+					printf("not enough wood \n");
+					return;
+				}
+
+
+				int cartX, cartY;
+				IsometricToCartesian(x, y, TILE_WIDTH, TILE_HEIGHT, cartX, cartY, relativeWidth, relativeHeight);
+
+				if (cartX < mapPadding + 5 || cartX + dairyFarmstats.width > MAP_WIDTH - mapPadding ||
+					cartY < mapPadding + 5 || cartY + dairyFarmstats.height + 1 > MAP_HEIGHT - mapPadding)
+				{
+					return;
+				}
+
+				for (int i = cartX; i < cartX + dairyFarmstats.width; i++)
+				{
+					for (int j = cartY; j < cartY + dairyFarmstats.height; j++)
 					{
-						warnings.push_back("cant place it here my lord");
-						printf("dairy farm is unable to be placed at %d %d \n", cartX, cartY);
-						return;
+						// if the pos that is clicked plus the size of the 
+						// building overlap with a unwalkable tile or other building
+						// then it will not be build
+						if (!(tilesArray[i + (j * MAP_HEIGHT)]->tileFlags & tlfwalkable) ||
+							std::find(unwalkableTiles.begin(), unwalkableTiles.end(),
+								vector2Int(i, j)) != unwalkableTiles.end())
+						{
+							warnings.push_back("cant place it here my lord");
+							printf("dairy farm is unable to be placed at %d %d \n", cartX, cartY);
+							return;
+						}
 					}
 				}
+
+				playerWood -= dairyFarmstats.buildCost;
+				AnimatedBuilding* newBuilding = new AnimatedBuilding(SpritesheetArray[sprDairyFarm],
+					vector2Int(cartX, cartY), dairyFarmstats.width, dairyFarmstats.height,
+					5000, &unwalkableTiles, &relativeWidth, &relativeHeight, 300);
+
+				newBuilding->ResetUnwalkableTiles(-2, 0, 8, 6);
+
+				buildings.push_back(newBuilding);
+
+				npcVector.push_back(new WorkerNpc(SpritesheetArray[sprFarmer], tilesArray,
+					&unwalkableTiles,
+					spawnPos,
+					newBuilding->GetEntryPos(),
+					granaryPos,
+					newBuilding, 5000,
+					&relativeWidth, &relativeHeight,
+					&playerFood, 10));
+
+				break;
 			}
 
-			AnimatedBuilding* newBuilding = new AnimatedBuilding(SpritesheetArray[sprDairyFarm],
-				vector2Int(cartX, cartY), dairyFarmstats.width, dairyFarmstats.height,
-				5000, &unwalkableTiles, &relativeWidth, &relativeHeight, 300);
-
-			newBuilding->ResetUnwalkableTiles(-2, 0, 8, 6);
-
-			buildings.push_back(newBuilding);
-
-			npcVector.push_back(new WorkerNpc(SpritesheetArray[sprFarmer], tilesArray,
-				&unwalkableTiles,
-				spawnPos,
-				newBuilding->GetEntryPos(),
-				granaryPos,
-				newBuilding, 5000,
-				&relativeWidth, &relativeHeight,
-				&playerFood, 10));
-
-			break;
-		}
-
-		case buildinghovel:
-		{
-			if (playerWood - hovelstats.buildCost < 0)
+			case buildinghovel:
 			{
-				warnings.push_back("not enough wood");
-				printf("not enough wood \n");
-				return;
-			}
-
-			playerWood -= hovelstats.buildCost;
-
-			int cartX, cartY;
-			IsometricToCartesian(x, y, TILE_WIDTH, TILE_HEIGHT, cartX, cartY, relativeWidth, relativeHeight);
-
-			if (cartX < 1 || cartX + hovelstats.width > MAP_WIDTH ||
-				cartY < 1 || cartY + hovelstats.height + 1 > MAP_HEIGHT)
-			{
-				return;
-			}
-
-			for (int i = cartX; i < cartX + hovelstats.width; i++)
-			{
-				for (int j = cartY; j < cartY + hovelstats.height; j++)
+				if (static_cast<int>(playerWood - hovelstats.buildCost) < 0)
 				{
-					// if the pos that is clicked plus the size of the 
-					// building overlap with a unwalkable tile or other building
-					// then it will not be build
-					if (!(tilesArray[i + (j * MAP_HEIGHT)]->tileFlags & tlfwalkable) ||
-						std::find(unwalkableTiles.begin(), unwalkableTiles.end(),
-							vector2Int(i, j)) != unwalkableTiles.end())
+					warnings.push_back("not enough wood");
+					printf("not enough wood \n");
+					return;
+				}
+
+
+				int cartX, cartY;
+				IsometricToCartesian(x, y, TILE_WIDTH, TILE_HEIGHT, cartX, cartY, relativeWidth, relativeHeight);
+
+				if (cartX < mapPadding || cartX + hovelstats.width > MAP_WIDTH - mapPadding ||
+					cartY < mapPadding || cartY + hovelstats.height + 1 > MAP_HEIGHT - mapPadding)
+				{
+					return;
+				}
+
+				for (int i = cartX; i < cartX + hovelstats.width; i++)
+				{
+					for (int j = cartY; j < cartY + hovelstats.height; j++)
 					{
-						warnings.push_back("cant place it here my lord");
-						printf("hovel is unable to be placed at %d %d \n", cartX, cartY);
-						return;
+						// if the pos that is clicked plus the size of the 
+						// building overlap with a unwalkable tile or other building
+						// then it will not be build
+						if (!(tilesArray[i + (j * MAP_HEIGHT)]->tileFlags & tlfwalkable) ||
+							std::find(unwalkableTiles.begin(), unwalkableTiles.end(),
+								vector2Int(i, j)) != unwalkableTiles.end())
+						{
+							warnings.push_back("cant place it here my lord");
+							printf("hovel is unable to be placed at %d %d \n", cartX, cartY);
+							return;
+						}
 					}
 				}
+
+				playerWood -= hovelstats.buildCost;
+				playerMaxPopulation += 6;
+
+				IdleBuilding* newBuilding = new IdleBuilding(SpritesheetArray[sprHovel],
+					vector2Int(cartX, cartY), hovelstats.width, hovelstats.height,
+					&unwalkableTiles, &relativeWidth, &relativeHeight);
+
+				buildings.push_back(newBuilding);
+				break;
 			}
 
-			IdleBuilding* newBuilding = new IdleBuilding(SpritesheetArray[sprHovel],
-				vector2Int(cartX, cartY), hovelstats.width, hovelstats.height,
-				&unwalkableTiles, &relativeWidth, &relativeHeight);
-
-			buildings.push_back(newBuilding);
-			break;
-		}
-		case buildingWoodCutterHut:
-		{
-			if (playerWood - woodcuttersHutstats.buildCost < 0)
+			case buildingWoodCutterHut:
 			{
-				warnings.push_back("not enough wood");
-				printf("not enough wood \n");
-				return;
-			}
-
-			playerWood -= woodcuttersHutstats.buildCost;
-
-			int cartX, cartY;
-			IsometricToCartesian(x, y, TILE_WIDTH, TILE_HEIGHT, cartX, cartY, relativeWidth, relativeHeight);
-
-			if (cartX < 1 || cartX + woodcuttersHutstats.width > MAP_WIDTH ||
-				cartY < 1 || cartY + woodcuttersHutstats.height + 1 > MAP_HEIGHT)
-			{
-				return;
-			}
-
-			for (int i = cartX; i < cartX + woodcuttersHutstats.width; i++)
-			{
-				for (int j = cartY; j < cartY + woodcuttersHutstats.height; j++)
+				if (static_cast<int>(playerWood - woodcuttersHutstats.buildCost) < 0)
 				{
-					// if the pos that is clicked plus the size of the 
-					// building overlap with a unwalkable tile or other building
-					// then it will not be build
-					if (!(tilesArray[i + (j * MAP_HEIGHT)]->tileFlags & tlfwalkable) ||
-						std::find(unwalkableTiles.begin(), unwalkableTiles.end(),
-							vector2Int(i, j)) != unwalkableTiles.end())
+					warnings.push_back("not enough wood");
+					printf("not enough wood \n");
+					return;
+				}
+
+
+				int cartX, cartY;
+				IsometricToCartesian(x, y, TILE_WIDTH, TILE_HEIGHT, cartX, cartY, relativeWidth, relativeHeight);
+
+
+
+				if (cartX < mapPadding || cartX + woodcuttersHutstats.width > MAP_WIDTH - mapPadding ||
+					cartY < mapPadding || cartY + woodcuttersHutstats.height + 1 > MAP_HEIGHT - mapPadding)
+				{
+					return;
+				}
+
+				for (int i = cartX; i < cartX + woodcuttersHutstats.width; i++)
+				{
+					for (int j = cartY; j < cartY + woodcuttersHutstats.height; j++)
 					{
-						warnings.push_back("cant place it here my lord");
-						printf("dairy farm is unable to be placed at %d %d \n", cartX, cartY);
-						return;
+						// if the pos that is clicked plus the size of the 
+						// building overlap with a unwalkable tile or other building
+						// then it will not be build
+						if (!(tilesArray[i + (j * MAP_HEIGHT)]->tileFlags & tlfwalkable) ||
+							std::find(unwalkableTiles.begin(), unwalkableTiles.end(),
+								vector2Int(i, j)) != unwalkableTiles.end())
+						{
+							warnings.push_back("cant place it here my lord");
+							printf("dairy farm is unable to be placed at %d %d \n", cartX, cartY);
+							return;
+						}
 					}
 				}
+
+				playerWood -= woodcuttersHutstats.buildCost;
+				IdleBuilding* newBuilding = new IdleBuilding(SpritesheetArray[sprWoodCutterHut],
+					vector2Int(cartX, cartY), woodcuttersHutstats.width, woodcuttersHutstats.height,
+					&unwalkableTiles, &relativeWidth, &relativeHeight);
+
+				buildings.push_back(newBuilding);
+
+				npcVector.push_back(new WoodCutterNpc(SpritesheetArray[sprWoodCutter], tilesArray,
+					&unwalkableTiles, spawnPos,
+					stockpilePos, 5000,
+					&relativeWidth, &relativeHeight,
+					&playerWood, 30, &trees));
+
+
+				break;
 			}
 
-			IdleBuilding* newBuilding = new IdleBuilding(SpritesheetArray[sprWoodCutterHut],
-				vector2Int(cartX, cartY), woodcuttersHutstats.width, woodcuttersHutstats.height,
-				&unwalkableTiles, &relativeWidth, &relativeHeight);
-
-			buildings.push_back(newBuilding);
-
-			npcVector.push_back(new WoodCutterNpc(SpritesheetArray[sprWoodCutter], tilesArray,
-				&unwalkableTiles, spawnPos,
-				stockpilePos, 5000,
-				&relativeWidth, &relativeHeight,
-				&playerWood, 30, &trees));
-
-
-			break;
-		}
-
-		default:
-		case buildingNone:
+			default:
+			case buildingNone:
 			break;
 		}
 	}
@@ -496,6 +504,11 @@ namespace Tmpl8
 
 		if (!warnings.empty())
 		{
+			if (warnings.size() > maxWarnings)
+			{
+				warnings.erase(warnings.begin() + maxWarnings, warnings.end());
+			}
+
 			int spacing = 20;
 			for (char* warning : warnings)
 			{
@@ -516,9 +529,9 @@ namespace Tmpl8
 		SpritesheetArray[sprWoodCutterHut]->RenderFrom(310, ScreenHeight - interfacebannerWidth + 25, 70, 70, 0, 0);
 
 
-		char goldText[10];
-		char woodText[10];
-		char foodText[10];
+		char goldText[22];
+		char woodText[15];
+		char foodText[15];
 		char populationText[60];
 		char populairityText[3];
 
@@ -528,7 +541,7 @@ namespace Tmpl8
 		sprintf(goldText, "gold %d", playerGold);
 		sprintf(woodText, "wood %d", playerWood);
 		sprintf(foodText, "food %d", playerFood);
-		sprintf(populationText, "%d/%d", playerPopulation, playerMaxPopulation);
+		sprintf(populationText, "%d/%d", npcVector.size(), playerMaxPopulation);
 		sprintf(populairityText, "%d", playerPopulairity);
 
 
@@ -540,6 +553,11 @@ namespace Tmpl8
 
 		m_ptrSurface->PrintScaled("population", ScreenWidth - interfacebannerWidth - 10, ScreenHeight - interfacebannerWidth + 80, 0xD1D1D1, 2);
 		m_ptrSurface->PrintScaled(populationText, ScreenWidth - interfacebannerWidth, ScreenHeight - interfacebannerWidth + 100, 0xD1D1D1, 2);
+
+		if (toolTipText != "")
+		{
+			m_ptrSurface->PrintScaled(toolTipText, 20, ScreenHeight - interfacebannerWidth - 20, 0xbbbbbb, 2);
+		}
 
 	}
 
@@ -559,7 +577,7 @@ namespace Tmpl8
 		}
 
 		renderTiles();
-		//FoodTick(p_deltaTime);
+		GameEventsTick(p_deltaTime);
 
 
 		for (BaseNpc* npc : npcVector)
@@ -594,6 +612,34 @@ namespace Tmpl8
 	void GameScene::Delete()
 	{
 
+	}
+
+	void GameScene::MouseMove(int p_x, int p_y)
+	{
+		if (p_y > ScreenHeight - interfacebannerWidth)
+		{
+
+			if (uiAppleFarmRect.IsInside(p_x, p_y))
+			{
+				sprintf(toolTipText, "apple farm  %d wood", appleFarmstats.buildCost);
+			}
+			else if (uiDairyFarmRect.IsInside(p_x, p_y))
+			{
+				sprintf(toolTipText, "dairy farm : %d wood", dairyFarmstats.buildCost);
+			}
+			else if (uiHovelRect.IsInside(p_x, p_y))
+			{
+				sprintf(toolTipText, "hovel : %d wood", hovelstats.buildCost);
+			}
+			else if (uiWoodcutterRect.IsInside(p_x, p_y))
+			{
+				sprintf(toolTipText, "wood cutter : %d wood", woodcuttersHutstats.buildCost);
+			}
+			else
+			{
+				sprintf(toolTipText, "");
+			}
+		}
 	}
 
 	void GameScene::GameEventsTick(float p_deltaTime)

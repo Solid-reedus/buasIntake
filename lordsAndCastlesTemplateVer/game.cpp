@@ -32,7 +32,7 @@ namespace Tmpl8
 
 	void Game::MouseMove(int x, int y)
 	{
-
+		m_ptrCurrentScene->MouseMove(x, y);
 	}
 
 	void Game::MouseScroll(int y)

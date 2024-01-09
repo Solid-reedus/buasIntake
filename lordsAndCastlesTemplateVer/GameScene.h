@@ -65,6 +65,7 @@ namespace Tmpl8
 		void KeyDown(SDL_Keycode key) override;
 		void MouseDown(int button, int x, int y) override;
 		void MouseScroll(int y) override;
+		void MouseMove(int p_x, int p_y) override;
 
 		private:
 
@@ -96,18 +97,18 @@ namespace Tmpl8
 		const buildingStats hovelstats = { 4, 5, 6 };
 		const buildingStats woodcuttersHutstats = { 2, 3, 5 };
 
-		uint16_t playerGold = 9995;
-		uint16_t playerWood = 1100;
-		uint16_t playerFood = 430;
-		uint16_t playerPopulation = 100;
-		uint16_t playerMaxPopulation = 150;
-
+		uint32_t playerGold = 0;
+		uint32_t playerWood = 100;
+		uint32_t playerFood = 430;
+		uint32_t playerMaxPopulation = 12;
 		int8_t playerPopulairity = 70;
+		char toolTipText[30] = "";
 
 		const float GameEventsTickInterval = 3000.0f;
 		float GameEventsTickTime = 0.0f;
 
 		std::vector<char*> warnings;
+		uint8_t maxWarnings = 10;
 		float warningDuration = 1500;
 		float warningTime = 0;
 
@@ -126,6 +127,9 @@ namespace Tmpl8
 
 		float relativeHeight = -1000;
 		float relativeWidth = 200;
+
+		// this is a little padding so buildings arent rendering outside the map diamond
+		const uint8_t mapPadding = 1;
 
 		// this is for methods that dont have acces too deltatime
 		float m_deltaTime = 0;
