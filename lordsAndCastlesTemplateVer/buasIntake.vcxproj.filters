@@ -104,6 +104,9 @@
     <ClInclude Include="HowToPlayScene.h">
       <Filter>scenes</Filter>
     </ClInclude>
+    <ClInclude Include="vGameObject.h">
+      <Filter>actors</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">

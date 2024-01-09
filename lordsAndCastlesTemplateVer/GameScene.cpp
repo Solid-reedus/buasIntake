@@ -1,5 +1,6 @@
 #include "GameScene.h"
 
+
 namespace Tmpl8
 {
 	GameScene::GameScene(Surface* p_ptrSurface, Game* p_ptrGame)
@@ -66,13 +67,13 @@ namespace Tmpl8
 		tilesArray[15 + (30 * MAP_HEIGHT)] = sandTile;
 
 
-		trees.push_back(Tree(SpritesheetArray[sprTreeIdle], SpritesheetArray[sprTreeTimber], vector2Int(15, 30), &unwalkableTiles, &relativeWidth, &relativeHeight));
+		trees.push_back(new Tree(SpritesheetArray[sprTreeIdle], SpritesheetArray[sprTreeTimber], vector2Int(15, 30), &unwalkableTiles, &relativeWidth, &relativeHeight));
 
 		for (size_t i = 0; i < 8; i++)
 		{
 			for (size_t j = 0; j < 3; j++)
 			{
-				trees.push_back(Tree(SpritesheetArray[sprTreeIdle], SpritesheetArray[sprTreeTimber], vector2Int(50 + (3 * i), 22 + (4 * j)), &unwalkableTiles, &relativeWidth, &relativeHeight));
+				trees.push_back(new Tree(SpritesheetArray[sprTreeIdle], SpritesheetArray[sprTreeTimber], vector2Int(50 + (3 * i), 22 + (4 * j)), &unwalkableTiles, &relativeWidth, &relativeHeight));
 			}
 		}
 
@@ -228,7 +229,7 @@ namespace Tmpl8
 			{
 				break;
 			}
-			else if (isoX - (TILE_WIDTH * 2) < 0 || isoY < 0)
+			else if (isoX + (TILE_WIDTH * 2) < 0 || isoY + (TILE_WIDTH * 2) < 0)
 			{
 				continue;
 			}
@@ -286,7 +287,6 @@ namespace Tmpl8
 
 				int cartX, cartY;
 				IsometricToCartesian(x, y, TILE_WIDTH, TILE_HEIGHT, cartX, cartY, relativeWidth, relativeHeight);
-
 
 
 				if (cartX < mapPadding || cartX + appleFarmstats.width > MAP_WIDTH - mapPadding ||
@@ -561,6 +561,14 @@ namespace Tmpl8
 
 	}
 
+
+	// Comparator function to sort vGameObject pointers based on grid position
+	bool CompareByGridPosition( vGameObject* obj1, vGameObject* obj2)
+	{
+		return (obj1->GetGridPos().x + obj1->GetGridPos().y) < (obj2->GetGridPos().x + obj2->GetGridPos().y);
+	}
+
+
 	void GameScene::Update(float p_deltaTime)
 	{
 		m_deltaTime = p_deltaTime;
@@ -579,27 +587,68 @@ namespace Tmpl8
 		renderTiles();
 		GameEventsTick(p_deltaTime);
 
+		std::vector<vGameObject*> sceneObjects;
 
 		for (BaseNpc* npc : npcVector)
 		{
 			npc->Update(p_deltaTime);
+			int isoX, isoY;
+
+			vector2Int pos = npc->GetGridPos();
+			CartesianToIsometric(pos.x, pos.y, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, relativeWidth, relativeHeight);
+
+			//costum min and max pos to be rendered
+			if (isoX > -TILE_WIDTH && isoX + TILE_WIDTH < ScreenWidth &&
+				isoY > -TILE_HEIGHT && isoY + TILE_HEIGHT < ScreenHeight)
+			{
+				sceneObjects.push_back(npc);
+			}
 		}
 
-		for (Tree &tree : trees)
-		{
-			tree.Update(p_deltaTime);
-		}
-
-		granary.Update(p_deltaTime);
-		keep.Update(p_deltaTime);
-		stockpile.Update(p_deltaTime);
-
-		//buildings
 		for (BaseBuilding* building : buildings)
 		{
 			building->Update(p_deltaTime);
+			int isoX, isoY;
+
+			vector2Int pos = building->GetGridPos();
+			CartesianToIsometric(pos.x, pos.y, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, relativeWidth, relativeHeight);
+
+			//costum min and max pos to be rendered
+			if (isoX > -(TILE_WIDTH * 3) && isoX < ScreenWidth + (TILE_WIDTH * 3) &&
+				isoY > -(TILE_HEIGHT * 6) && isoY < ScreenHeight - TILE_HEIGHT)
+			{
+				sceneObjects.push_back(building);
+			}
 		}
 
+		for (Tree* tree : trees)
+		{
+			tree->Update(p_deltaTime);
+			float isoX, isoY;
+
+			vector2Int pos = tree->GetGridPos();
+			FloatCartesianToIsometric(pos.x, pos.y, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, relativeWidth, relativeHeight);
+
+			//costum min and max pos to be rendered
+			if (isoX > -TILE_WIDTH && isoX < ScreenWidth + TILE_WIDTH &&
+				isoY > -TILE_HEIGHT && isoY < ScreenHeight + (TILE_HEIGHT * 4))
+			{
+				sceneObjects.push_back(tree);
+			}
+		}
+
+
+		sceneObjects.push_back(&granary);
+		sceneObjects.push_back(&keep);
+		sceneObjects.push_back(&stockpile);
+		
+		std::sort(sceneObjects.begin(), sceneObjects.end(), CompareByGridPosition);
+
+		for (vGameObject* gameObject : sceneObjects)
+		{
+			
+			gameObject->Render();
+		}
 
 		DrawUI();
 	}

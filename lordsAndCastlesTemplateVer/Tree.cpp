@@ -46,11 +46,11 @@ void Tree::Update(float p_deltaTime)
 	{
 		case treestateIdle:
 		{
-			int isoX, isoY;
-			// tree has a  - 14 and - 5 because the tree spritesheet also contains it timbering
-			// which offsets the tree inside the spritesheet
-			CartesianToIsometric(m_gridPos.x - 14, m_gridPos.y - 5, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
-			m_spriteSheetIdle->RenderFrom(isoX, isoY, TILE_WIDTH * 6, TILE_HEIGHT * 10, 0, 0);
+			//int isoX, isoY;
+			//// tree has a  - 14 and - 5 because the tree spritesheet also contains it timbering
+			//// which offsets the tree inside the spritesheet
+			//CartesianToIsometric(m_gridPos.x - 14, m_gridPos.y - 5, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
+			//m_spriteSheetIdle->RenderFrom(isoX, isoY, TILE_WIDTH * 6, TILE_HEIGHT * 10, 0, 0);
 			break;
 		}
 		case treestateGone:
@@ -72,21 +72,66 @@ void Tree::Update(float p_deltaTime)
 			{
 				m_state = treestateGone;
 			}
-			else
-			{
-				float temp = m_tickAnimTime;
-				int isoX, isoY;
-				int currentframe = static_cast<int>(temp * m_spriteSheetTimber->RowColCount(0) / m_timberDuration);
-
-				CartesianToIsometric(m_gridPos.x - 14, m_gridPos.y - 5, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
-				m_spriteSheetIdle->RenderFrom(isoX, isoY, TILE_WIDTH * 6, TILE_HEIGHT * 10, 0, currentframe);
-			}
+			//else
+			//{
+			//	float temp = m_tickAnimTime;
+			//	int isoX, isoY;
+			//	int currentframe = static_cast<int>(temp * m_spriteSheetTimber->RowColCount(0) / m_timberDuration);
+			//
+			//	CartesianToIsometric(m_gridPos.x - 14, m_gridPos.y - 5, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
+			//	m_spriteSheetIdle->RenderFrom(isoX, isoY, TILE_WIDTH * 6, TILE_HEIGHT * 10, 0, currentframe);
+			//}
 			
 		}
 
 		case treestateNone:
 		break;
 	}
+}
+
+void Tree::Render()
+{
+
+	switch (m_state)
+	{
+		case treestateIdle:
+		{
+			int isoX, isoY;
+			// tree has a  - 14 and - 5 because the tree spritesheet also contains it timbering
+			// which offsets the tree inside the spritesheet
+			CartesianToIsometric(m_gridPos.x - 14, m_gridPos.y - 5, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
+			m_spriteSheetIdle->RenderFrom(isoX, isoY, TILE_WIDTH * 6, TILE_HEIGHT * 10, 0, 0);
+			break;
+		}
+		case treestateGone:
+		{
+			break;
+		}
+		case treestateTimber:
+		{
+
+			float temp = m_tickAnimTime;
+			int isoX, isoY;
+			int currentframe = static_cast<int>(temp * m_spriteSheetTimber->RowColCount(0) / m_timberDuration);
+
+			CartesianToIsometric(m_gridPos.x - 14, m_gridPos.y - 5, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
+			m_spriteSheetIdle->RenderFrom(isoX, isoY, TILE_WIDTH * 6, TILE_HEIGHT * 10, 0, currentframe);
+		}
+
+		case treestateNone:
+		break;
+	}
+}
+
+
+vector2 Tree::GetPos()
+{
+	return m_pos;
+}
+
+vector2Int Tree::GetGridPos()
+{
+	return m_gridPos;
 }
 
 vector2Int Tree::GetGridPosition() const

@@ -6,6 +6,7 @@
 #include "vectorHeader.h"
 #include "baseHeader.h"
 #include "PerspectiveMath.h"
+#include "vGameObject.h"
 
 enum TreeStates
 {
@@ -15,14 +16,18 @@ enum TreeStates
 	treestateGone,
 };
 
-class Tree
+class Tree : public vGameObject
 {
 	public:
 	Tree();
 	Tree(SpriteSheet* p_spriteSheetIdle, SpriteSheet* p_spriteSheetTimber, vector2Int p_gridPos, std::vector<vector2Int>* p_ptrUnwalkableTiles,
 		float* p_ptrRelativeWidth, float* p_ptrRelativeHeight);
 	~Tree();
-	void Update(float p_deltaTime);
+	void Update(float p_deltaTime) override;
+	void Render() override;
+
+	vector2 GetPos() override;
+	vector2Int GetGridPos() override;
 
 	// GetGridPosition is const because 
 	// methods used by lambdas need to be const

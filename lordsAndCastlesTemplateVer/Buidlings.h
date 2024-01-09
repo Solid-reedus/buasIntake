@@ -5,7 +5,7 @@
 #include "vectorHeader.h"
 #include "baseHeader.h"
 #include "PerspectiveMath.h"
-
+#include "vGameObject.h"
 
 enum BuildingCurrentState
 {
@@ -16,13 +16,13 @@ enum BuildingCurrentState
 
 // this is a base class 
 // it allows the buildings for abstraction and ease of use
-class BaseBuilding
+class BaseBuilding : public vGameObject
 {
 	public:
 	virtual ~BaseBuilding() {}
 
 	//class needs to override this
-	virtual void Update(float p_deltaTime) = 0;
+	//virtual void Update(float p_deltaTime) = 0;
 
 	// additive methods
 	void UnsetUnwalkableTiles();
@@ -31,7 +31,8 @@ class BaseBuilding
 	void SetCustomEntryPos(vector2Int p_newPos);
 	vector2Int GetEntryPos();
 
-
+	vector2 GetPos() override;
+	vector2Int GetGridPos() override;
 
 	protected:
 	SpriteSheet* m_spriteSheet;
@@ -53,6 +54,7 @@ class IdleBuilding : public BaseBuilding
 		std::vector<vector2Int>* p_ptrUnwalkableTiles, float* p_ptrRelativeWidth, float* p_ptrRelativeHeight);
 	~IdleBuilding();
 	void Update(float p_deltaTime) override;
+	void Render() override;
 
 	private:
 };
@@ -69,6 +71,8 @@ class IdleAnimBuidling : public BaseBuilding
 	~IdleAnimBuidling();
 
 	void Update(float p_deltaTime) override;
+	void Render() override;
+
 
 	void SetBuildingState(BuildingCurrentState p_state);
 
@@ -91,6 +95,7 @@ class AnimatedBuilding : public BaseBuilding
 
 
 	void Update(float p_deltaTime) override;
+	void Render() override;
 
 	void SetBuildingState(BuildingCurrentState p_state);
 

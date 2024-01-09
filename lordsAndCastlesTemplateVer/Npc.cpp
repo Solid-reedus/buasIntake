@@ -280,6 +280,7 @@ void BaseNpc::Walk()
         }
         if (magnitude < 0.3)
         {
+            m_gridPos = m_path[0];
             m_path.erase(m_path.begin());
         }
     }
@@ -342,6 +343,15 @@ void BaseNpc::CheckForNewLookDir(uint8_t p_dir)
     }
 }
 
+vector2 BaseNpc::GetPos()
+{
+    return m_pos;
+}
+
+vector2Int BaseNpc::GetGridPos()
+{
+    return m_gridPos;
+}
 
 WorkerNpc::WorkerNpc()
 {
@@ -419,7 +429,10 @@ void WorkerNpc::Update(float p_deltaTime)
             m_spritesheetColIndex = 0;
         }
     }
+}
 
+void WorkerNpc::Render()
+{
     if (!(m_state == npcStateWorking))
     {
         float isoX, isoY;
@@ -549,7 +562,7 @@ WoodCutterNpc::WoodCutterNpc()
 
 WoodCutterNpc::WoodCutterNpc(SpriteSheet* p_spriteSheet, Tile** p_ptrMapArray, std::vector<vector2Int>* p_ptrUnwalkableTiles,
     vector2Int p_startPos, const vector2Int p_stockPile, const float p_workTime, float* p_ptrRelativeWidth,
-    float* p_ptrRelativeHeight, uint32_t* p_refRecource, uint32_t p_increaseRecourceAmount, std::vector<Tree>* p_ptrTrees)
+    float* p_ptrRelativeHeight, uint32_t* p_refRecource, uint32_t p_increaseRecourceAmount, std::vector<Tree*>* p_ptrTrees)
 {
     m_spriteSheet = p_spriteSheet;
     m_ptrMapArray = p_ptrMapArray;
@@ -587,37 +600,37 @@ void WoodCutterNpc::FindClosestTree()
 {
     // Function to calculate squared distance
     auto distanceSquared = [](const vector2Int& pos1, const vector2Int& pos2)
-        {
-            int dx = pos1.x - pos2.x;
-            int dy = pos1.y - pos2.y;
-            return dx * dx + dy * dy;
-        };
+    {
+        int dx = pos1.x - pos2.x;
+        int dy = pos1.y - pos2.y;
+        return dx * dx + dy * dy;
+    };
 
     vector2Int npcPosition = m_gridPos;  // Make a copy of m_gridPos
 
     // Function to compare trees based on their distance and occupancy status
-    auto distanceAndOccupancyComparator = [npcPosition, distanceSquared](const Tree& tree1, const Tree& tree2)
+    auto distanceAndOccupancyComparator = [npcPosition, distanceSquared](const Tree* tree1, const Tree* tree2)
+    {
+        // If one tree is occupied and the other is not, prioritize the unoccupied tree
+        if (tree1->occupied != tree2->occupied)
         {
-            // If one tree is occupied and the other is not, prioritize the unoccupied tree
-            if (tree1.occupied != tree2.occupied)
-            {
-                return !tree1.occupied;
-            }
+            return !tree1->occupied;
+        }
 
-            // If both trees are occupied or unoccupied, compare based on distance
-            return distanceSquared(tree1.GetGridPosition(), npcPosition) < distanceSquared(tree2.GetGridPosition(), npcPosition);
-        };
+        // If both trees are occupied or unoccupied, compare based on distance
+        return distanceSquared(tree1->GetGridPosition(), npcPosition) < distanceSquared(tree2->GetGridPosition(), npcPosition);
+    };
 
     // Use std::min_element with the lambda function to find the closest tree
     auto closestTree = std::min_element(m_ptrTrees->begin(), m_ptrTrees->end(), distanceAndOccupancyComparator);
 
     // Check if a closest tree was found
-    if (closestTree != m_ptrTrees->end() && !closestTree->occupied)
+    if (closestTree != m_ptrTrees->end() && !(*closestTree)->occupied)
     {
         // Set the occupied flag for the selected tree
-        closestTree->occupied = true;
+        (*closestTree)->occupied = true;
         // Return a pointer to the closest tree
-        m_ptrCurrentTree = &(*closestTree);
+        m_ptrCurrentTree = *closestTree;
     }
     else
     {
@@ -625,6 +638,7 @@ void WoodCutterNpc::FindClosestTree()
         m_ptrCurrentTree = nullptr;
     }
 }
+
 
 
 void WoodCutterNpc::Update(float p_deltaTime)
@@ -648,6 +662,10 @@ void WoodCutterNpc::Update(float p_deltaTime)
         }
     }
 
+}
+
+void WoodCutterNpc::Render()
+{
     float isoX, isoY;
     FloatCartesianToIsometric(m_pos.x, m_pos.y, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
     m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY) - NPC_HEIGHT / 2, NPC_WIDTH, NPC_HEIGHT, static_cast<uint8_t>(m_lookDir), m_spritesheetColIndex);

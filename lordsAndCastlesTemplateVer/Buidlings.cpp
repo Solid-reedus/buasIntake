@@ -49,8 +49,17 @@ vector2Int BaseBuilding::GetEntryPos()
 	return m_EntryPos;
 }
 
-/// basebuilding region end
+vector2 BaseBuilding::GetPos()
+{
+	return m_pos;
+}
 
+vector2Int BaseBuilding::GetGridPos()
+{
+	return m_gridPos;
+}
+
+/// basebuilding region end
 
 
 
@@ -103,11 +112,15 @@ IdleBuilding::~IdleBuilding()
 
 void IdleBuilding::Update(float p_deltaTime)
 {
+
+}
+
+void IdleBuilding::Render()
+{
 	float isoX, isoY;
 	FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
 	m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY), static_cast<int>(TILE_WIDTH * m_textureSize / 1.25f), static_cast<int>(TILE_HEIGHT * m_textureSize * 1.25f), 0, 0);
 }
-
 
 /// idlebuilding region end
 
@@ -164,7 +177,7 @@ IdleAnimBuidling::IdleAnimBuidling(SpriteSheet* p_spriteSheet, vector2Int p_grid
 
 void IdleAnimBuidling::Update(float p_deltaTime)
 {
-	float isoX, isoY;
+	//float isoX, isoY;
 
 	switch (m_state)
 	{
@@ -172,8 +185,8 @@ void IdleAnimBuidling::Update(float p_deltaTime)
 	{
 		
 		//float isoX, isoY;
-		FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
-		m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY), static_cast<int>(TILE_WIDTH * m_textureSize / 1.25f), static_cast<int>(TILE_HEIGHT * m_textureSize * 1.25f), 0, 0);
+		//FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
+		//m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY), static_cast<int>(TILE_WIDTH * m_textureSize / 1.25f), static_cast<int>(TILE_HEIGHT * m_textureSize * 1.25f), 0, 0);
 		break;
 	}
 	case bldnStateActive:
@@ -187,19 +200,47 @@ void IdleAnimBuidling::Update(float p_deltaTime)
 			m_state = bldnStateIdle;
 			m_tickAnimTime = 0;
 		}
-		else
-		{
-			int currentframe = m_tickAnimTime * m_spriteSheet->RowColCount(0) / m_workDuration;
-			FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
-			m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY), static_cast<int>(TILE_WIDTH * m_textureSize / 1.25f), static_cast<int>(TILE_HEIGHT * m_textureSize * 1.25f), 0, currentframe);
-
-		}
+		//else
+		//{
+		//	int currentframe = m_tickAnimTime * m_spriteSheet->RowColCount(0) / m_workDuration;
+		//	FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
+		//	m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY), static_cast<int>(TILE_WIDTH * m_textureSize / 1.25f), static_cast<int>(TILE_HEIGHT * m_textureSize * 1.25f), 0, currentframe);
+		//
+		//}
 
 		break;
 	}
 
-	default:
-	case bldnStateNone:
+		default:
+		case bldnStateNone:
+		break;
+	}
+}
+
+void IdleAnimBuidling::Render()
+{
+	float isoX, isoY;
+
+	switch (m_state)
+	{
+	case bldnStateIdle:
+	{
+
+		//float isoX, isoY;
+		FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
+		m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY), static_cast<int>(TILE_WIDTH * m_textureSize / 1.25f), static_cast<int>(TILE_HEIGHT * m_textureSize * 1.25f), 0, 0);
+		break;
+	}
+	case bldnStateActive:
+	{
+		int currentframe = m_tickAnimTime * m_spriteSheet->RowColCount(0) / m_workDuration;
+		FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
+		m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY), static_cast<int>(TILE_WIDTH * m_textureSize / 1.25f), static_cast<int>(TILE_HEIGHT * m_textureSize * 1.25f), 0, currentframe);
+		break;
+	}
+
+		default:
+		case bldnStateNone:
 		break;
 	}
 }
@@ -272,7 +313,7 @@ AnimatedBuilding::AnimatedBuilding(SpriteSheet* p_spriteSheet, vector2Int p_grid
 
 void AnimatedBuilding::Update(float p_deltaTime)
 {
-	float isoX, isoY;
+	//float isoX, isoY;
 
 	switch (m_state)
 	{
@@ -289,13 +330,6 @@ void AnimatedBuilding::Update(float p_deltaTime)
 			}
 			m_tickAnimTime = 0;
 		}
-
-		FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
-		m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY), 
-			static_cast<int>(TILE_WIDTH * m_textureSize / 1.25f), 
-			static_cast<int>(TILE_HEIGHT * m_textureSize * 1.25f), 
-			static_cast<uint8_t>(bldnStateIdle), m_spritesheetColIndex);
-
 		break;
 	}
 	case bldnStateActive:
@@ -309,17 +343,17 @@ void AnimatedBuilding::Update(float p_deltaTime)
 			m_state = bldnStateIdle;
 			m_tickAnimTime = 0;
 		}
-		else
-		{
-			int currentframe = m_tickAnimTime * m_spriteSheet->RowColCount(static_cast<int>(bldnStateActive)) / m_workDuration;
-
-			printf("animated building frame %d \n", currentframe);
-
-			FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
-			m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY), 
-				static_cast<int>(TILE_WIDTH * m_textureSize / 1.25f), 
-				static_cast<int>(TILE_HEIGHT * m_textureSize * 1.25f), 0, currentframe);
-		}
+		//else
+		//{
+		//	int currentframe = m_tickAnimTime * m_spriteSheet->RowColCount(static_cast<int>(bldnStateActive)) / m_workDuration;
+		//
+		//	printf("animated building frame %d \n", currentframe);
+		//
+		//	FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
+		//	m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY), 
+		//		static_cast<int>(TILE_WIDTH * m_textureSize / 1.25f), 
+		//		static_cast<int>(TILE_HEIGHT * m_textureSize * 1.25f), 0, currentframe);
+		//}
 
 		break;
 	}
@@ -327,6 +361,38 @@ void AnimatedBuilding::Update(float p_deltaTime)
 	default:
 	case bldnStateNone:
 		break;
+	}
+}
+
+void AnimatedBuilding::Render()
+{
+	float isoX, isoY;
+
+	switch (m_state)
+	{
+	case bldnStateIdle:
+	{
+		FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
+		m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY),
+			static_cast<int>(TILE_WIDTH * m_textureSize / 1.25f),
+			static_cast<int>(TILE_HEIGHT * m_textureSize * 1.25f),
+			static_cast<uint8_t>(bldnStateIdle), m_spritesheetColIndex);
+
+		break;
+	}
+	case bldnStateActive:
+	{
+		int currentframe = m_tickAnimTime * m_spriteSheet->RowColCount(static_cast<int>(bldnStateActive)) / m_workDuration;
+		FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
+		m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY),
+			static_cast<int>(TILE_WIDTH * m_textureSize / 1.25f),
+			static_cast<int>(TILE_HEIGHT * m_textureSize * 1.25f), 0, currentframe);
+		break;
+	}
+
+	default:
+	case bldnStateNone:
+	break;
 	}
 }
 

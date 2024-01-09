@@ -14,6 +14,8 @@
 #include "Buidlings.h"
 #include "Tree.h"
 #include "Rect.h"
+#include "vGameObject.h"
+#include <algorithm> 
 
 enum BuildingEnum
 {
@@ -68,6 +70,7 @@ namespace Tmpl8
 		void MouseMove(int p_x, int p_y) override;
 
 		private:
+
 
 		void GameEventsTick(float p_deltaTime);
 		void renderTiles();
@@ -124,6 +127,7 @@ namespace Tmpl8
 
 		Surface* controlpanelBanner = new Surface("assets/map.jpg");
 		std::vector<vector2Int> unwalkableTiles;
+		std::vector<vGameObject*> sceneObjects;
 
 		float relativeHeight = -1000;
 		float relativeWidth = 200;
@@ -142,6 +146,6 @@ namespace Tmpl8
 		RectInt uiHovelRect = { 220, ScreenHeight - interfacebannerWidth + 25, 70, 70 };
 		RectInt uiWoodcutterRect = { 310, ScreenHeight - interfacebannerWidth + 25, 70, 70 };
 
-		std::vector<Tree> trees;
+		std::vector<Tree*> trees;
 	};
 }

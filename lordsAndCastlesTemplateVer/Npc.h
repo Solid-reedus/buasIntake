@@ -13,6 +13,7 @@
 #include <mutex>
 #include "Tree.h"
 #include <algorithm>
+#include "vGameObject.h"
 
 /*
 const int NPC_WIDTH = 40;
@@ -54,22 +55,23 @@ enum NpcCurrentState
     npcStateWalkToStoc = 4,
 };
 
-class BaseNpc
+class BaseNpc : public vGameObject 
 {
-public:
+    public:
     virtual ~BaseNpc() {}  // Virtual destructor
 
     virtual void Update(float p_deltaTime) = 0;
     virtual void Tick(float p_deltaTime) = 0;
     std::vector<vector2Int> FindPath(vector2Int p_target);
 
-protected:
+    vector2 GetPos() override;
+    vector2Int GetGridPos() override;
+
+    protected:
 
     void Walk();
     void CheckForNewLookDir(uint8_t p_dir);
 
-    vector2 m_pos;
-    vector2Int m_gridPos;
 
     Tile** m_ptrMapArray;
     std::vector<vector2Int>* m_ptrUnwalkableTiles;
@@ -89,7 +91,7 @@ protected:
 
 class WorkerNpc : public BaseNpc
 {
-public:
+    public:
     WorkerNpc();
     //WorkerNpc(const WorkerNpc&);
     WorkerNpc(SpriteSheet* p_spriteSheet, Tile** p_ptrMapArray, std::vector<vector2Int>* p_ptrUnwalkableTiles,
@@ -100,9 +102,11 @@ public:
 
     //general npc update
     void Update(float p_deltaTime) override;
+    void Render() override;
     void Tick(float p_deltaTime) override;
 
-private:
+
+    private:
     void FindPathAsync(const vector2Int p_target, const NpcCurrentState p_newState);
 
     SpriteSheet* m_spriteSheet;
@@ -122,12 +126,13 @@ public:
     WoodCutterNpc::WoodCutterNpc();
     WoodCutterNpc::WoodCutterNpc(SpriteSheet* p_spriteSheet, Tile** p_ptrMapArray, std::vector<vector2Int>* p_ptrUnwalkableTiles,
         vector2Int p_startPos, const vector2Int p_stockPile, const float p_workTime, float* p_ptrRelativeWidth,
-        float* p_ptrRelativeHeight, uint32_t* p_refRecource, uint32_t p_increaseRecourceAmount, std::vector<Tree>* p_ptrTrees);
+        float* p_ptrRelativeHeight, uint32_t* p_refRecource, uint32_t p_increaseRecourceAmount, std::vector<Tree*>* p_ptrTrees);
 
     WoodCutterNpc::~WoodCutterNpc();
 
     //general npc update
     void Update(float p_deltaTime) override;
+    void Render() override;
     void Tick(float p_deltaTime) override;
 
 private:
@@ -142,7 +147,7 @@ private:
     uint32_t* m_ptrRecource;
     uint32_t m_increaseRecourceAmount;
 
-    std::vector<Tree>* m_ptrTrees;
+    std::vector<Tree*>* m_ptrTrees;
     Tree* m_ptrCurrentTree = nullptr;
 };
 
