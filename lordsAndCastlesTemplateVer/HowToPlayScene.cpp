@@ -13,15 +13,10 @@ namespace Tmpl8
 		m_GoToMenubtn = Button({ 50, 50, 200, 75 }, k_grey, m_ptrSurface, "go back to menu", 2, k_red);
 	}
 
-	HowToPlayScene::~HowToPlayScene()
-	{
-
-	}
 
 	void HowToPlayScene::InitScene()
 	{
 		// init foreach button a lambda/funtion
-		#pragma region init button events
 
 		m_HowToPlayClickEvents += [&]()
 		{
@@ -31,18 +26,12 @@ namespace Tmpl8
 			}
 		};
 
-		#pragma endregion
-
-
-				// init click events for the scene
-		#pragma region add buttons to the scene events
-
+		// init click events for the scene
 		m_GoToMenubtn.event += [&]()
 		{
 			m_ptrGame->ChangeScene(menuScn);
 		};
 
-		#pragma endregion
 	}
 
 	void HowToPlayScene::DrawScrollBar()
@@ -60,7 +49,8 @@ namespace Tmpl8
 		DrawScrollBar();
 		m_ptrSurface->PrintScaled("how to play", ScreenWidth / 2 - 100, relativeHeight + 50, k_gold, 3);
 
-		m_ptrSurface->PrintScaled("move around the map with wasd", 100, relativeHeight + 200, k_gold, 3);
+		m_ptrSurface->PrintScaled("move around the map with wasd", 100, relativeHeight + 180, k_gold, 3);
+		m_ptrSurface->PrintScaled("and increase movespeed with plus and minus", 100, relativeHeight + 220, k_gold, 3);
 		m_ptrSurface->PrintScaled("you can select what you want to build by", 100, relativeHeight + 300, k_gold, 3);
 		m_ptrSurface->PrintScaled("clicking on one of these images in your UI bar", 100, relativeHeight + 320, k_gold, 3);
 
@@ -88,21 +78,6 @@ namespace Tmpl8
 		m_GoToMenubtn.RenderBtn();
 	}
 
-	void HowToPlayScene::Delete()
-	{
-
-	}
-
-	void HowToPlayScene::KeyDown(SDL_Keycode key)
-	{
-
-	}
-
-	void HowToPlayScene::MouseMove(int p_x, int p_y)
-	{
-
-	}
-
 	void HowToPlayScene::MouseScroll(int y)
 	{
 
@@ -111,7 +86,6 @@ namespace Tmpl8
 		{
 			relativeHeight += y * 15;
 		}
-
 		printf("relativeHeight = %d \n", relativeHeight);
 	}
 

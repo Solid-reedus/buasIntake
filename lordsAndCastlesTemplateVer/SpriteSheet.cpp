@@ -18,7 +18,7 @@ SpriteSheet::SpriteSheet(Tmpl8::Surface* p_surface, Tmpl8::Surface* p_sheet, uin
 	m_rows = p_rows;
 	m_cols = p_cols;
 
-	m_spriteSheetRowArray = new uint8_t[p_rows];
+	m_spriteSheetRowArray = new uint8_t[p_rows]();
 }
 
 int Clamp(int p_val, int p_min, int p_max)
@@ -28,10 +28,6 @@ int Clamp(int p_val, int p_min, int p_max)
 
 SpriteSheet::~SpriteSheet()
 {
-	if (m_spriteSheetRowArray != nullptr)
-	{
-		delete[] m_spriteSheetRowArray;
-	}
 	if (m_sheet != nullptr)
 	{
 		delete m_sheet;

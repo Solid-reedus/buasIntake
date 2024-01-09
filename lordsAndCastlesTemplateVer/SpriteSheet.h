@@ -5,6 +5,7 @@
 
 #include "surface.h"
 #include <iostream>
+#include <vector>
 
 
 	class SpriteSheet
@@ -14,6 +15,7 @@
 		SpriteSheet(Tmpl8::Surface* p_surface, Tmpl8::Surface* p_sheet, uint8_t p_rows, uint8_t p_cols);
 
 		~SpriteSheet();
+		// this funtion will draw a specific index of the spritesheet
 		void RenderFrom(int p_xPos, int p_yPos, int p_width, int p_height, uint8_t p_row, uint8_t p_col);
 		// this is used for classes that use the spritesheet to easily check how many frames a row has
 		int RowColCount(int p_index);

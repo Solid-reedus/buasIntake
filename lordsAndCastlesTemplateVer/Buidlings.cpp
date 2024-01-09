@@ -313,53 +313,38 @@ AnimatedBuilding::AnimatedBuilding(SpriteSheet* p_spriteSheet, vector2Int p_grid
 
 void AnimatedBuilding::Update(float p_deltaTime)
 {
-	//float isoX, isoY;
-
 	switch (m_state)
 	{
-	case bldnStateIdle:
-	{
-		m_tickAnimTime += p_deltaTime;
-
-		if (m_tickAnimTime >= m_animSpeed)
+		case bldnStateIdle:
 		{
-			m_spritesheetColIndex++;
-			if (m_spritesheetColIndex > m_spriteSheet->RowColCount(static_cast<uint8_t>(bldnStateIdle)))
+			m_tickAnimTime += p_deltaTime;
+
+			if (m_tickAnimTime >= m_animSpeed)
 			{
-				m_spritesheetColIndex = 0;
+				m_spritesheetColIndex++;
+				if (m_spritesheetColIndex > m_spriteSheet->RowColCount(static_cast<uint8_t>(bldnStateIdle)))
+				{
+					m_spritesheetColIndex = 0;
+				}
+				m_tickAnimTime = 0;
 			}
-			m_tickAnimTime = 0;
+			break;
 		}
-		break;
-	}
-	case bldnStateActive:
-	{
-		//m_workDuration
-		m_tickAnimTime += p_deltaTime;
-
-		//if the animation is done the return to idle
-		if (m_tickAnimTime > m_workDuration)
+		case bldnStateActive:
 		{
-			m_state = bldnStateIdle;
-			m_tickAnimTime = 0;
+			//m_workDuration
+			m_tickAnimTime += p_deltaTime;
+
+			//if the animation is done the return to idle
+			if (m_tickAnimTime > m_workDuration)
+			{
+				m_state = bldnStateIdle;
+				m_tickAnimTime = 0;
+			}
+			break;
 		}
-		//else
-		//{
-		//	int currentframe = m_tickAnimTime * m_spriteSheet->RowColCount(static_cast<int>(bldnStateActive)) / m_workDuration;
-		//
-		//	printf("animated building frame %d \n", currentframe);
-		//
-		//	FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
-		//	m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY), 
-		//		static_cast<int>(TILE_WIDTH * m_textureSize / 1.25f), 
-		//		static_cast<int>(TILE_HEIGHT * m_textureSize * 1.25f), 0, currentframe);
-		//}
-
-		break;
-	}
-
-	default:
-	case bldnStateNone:
+		default:
+		case bldnStateNone:
 		break;
 	}
 }
@@ -370,29 +355,30 @@ void AnimatedBuilding::Render()
 
 	switch (m_state)
 	{
-	case bldnStateIdle:
-	{
-		FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
-		m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY),
-			static_cast<int>(TILE_WIDTH * m_textureSize / 1.25f),
-			static_cast<int>(TILE_HEIGHT * m_textureSize * 1.25f),
-			static_cast<uint8_t>(bldnStateIdle), m_spritesheetColIndex);
+		case bldnStateIdle:
+		{
+			FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
+			m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY),
+				static_cast<int>(TILE_WIDTH * m_textureSize / 1.25f),
+				static_cast<int>(TILE_HEIGHT * m_textureSize * 1.25f),
+				static_cast<uint8_t>(bldnStateIdle), m_spritesheetColIndex);
 
-		break;
-	}
-	case bldnStateActive:
-	{
-		int currentframe = m_tickAnimTime * m_spriteSheet->RowColCount(static_cast<int>(bldnStateActive)) / m_workDuration;
-		FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
-		m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY),
-			static_cast<int>(TILE_WIDTH * m_textureSize / 1.25f),
-			static_cast<int>(TILE_HEIGHT * m_textureSize * 1.25f), 0, currentframe);
-		break;
-	}
+			break;
+		}
 
-	default:
-	case bldnStateNone:
-	break;
+		case bldnStateActive:
+		{
+			int currentframe = m_tickAnimTime * m_spriteSheet->RowColCount(static_cast<int>(bldnStateActive)) / m_workDuration;
+			FloatCartesianToIsometric((m_gridPos.x - m_textureSize / 1.25f) + 0.5f, m_gridPos.y - 0.5f, TILE_WIDTH, TILE_HEIGHT, isoX, isoY, *m_ptrRelativeWidth, *m_ptrRelativeHeight);
+			m_spriteSheet->RenderFrom(static_cast<int>(isoX), static_cast<int>(isoY),
+				static_cast<int>(TILE_WIDTH * m_textureSize / 1.25f),
+				static_cast<int>(TILE_HEIGHT * m_textureSize * 1.25f), 0, currentframe);
+			break;
+		}
+
+		default:
+		case bldnStateNone:
+		break;
 	}
 }
 

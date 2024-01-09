@@ -12,7 +12,9 @@ enum GameSceneEnum
 	howToPlayScn = 3
 };
 
-
+// BaseScene is a base class that allows 
+// a class that implements BaseScene to be used and saved as a BaseScene
+// that helps with abstraction
 class BaseScene
 {
 	public:

@@ -17,15 +17,15 @@ namespace Tmpl8
 		public:
 
 		HowToPlayScene(Surface* p_ptrSurface, Game* p_ptrGame);
-		~HowToPlayScene() override;
+		~HowToPlayScene() override {};
 
 		void InitScene() override;
 		void Update(float p_deltaTime) override;
-		void Delete() override;
-		void KeyDown(SDL_Keycode key) override;
+		void Delete() override {};
+		void KeyDown(SDL_Keycode key) override {};
 		void MouseDown(int button, int x, int y) override;
 		void MouseScroll(int y) override;
-		void MouseMove(int p_x, int p_y) override;
+		void MouseMove(int p_x, int p_y) override {};
 
 		private:
 

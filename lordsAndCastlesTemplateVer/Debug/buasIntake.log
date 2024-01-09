@@ -1,15 +1,39 @@
 ﻿  GameScene.cpp
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(67,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(70,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
   (compiling source file 'GameScene.cpp')
   
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(76,122): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(76,108): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(544,27): warning C4477: 'sprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
-  C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(544,27):
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(95,122): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(95,108): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(102,123): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(102,109): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(109,124): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(109,109): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(116,123): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(116,108): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(541,27): warning C4477: 'sprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
+  C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(541,27):
   consider using '%zd' in the format string
   
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(628,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(628,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(708,33): warning C4267: '-=': conversion from 'size_t' to 'uint32_t', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(709,36): warning C4267: '+=': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(625,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(625,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(741,33): warning C4267: '-=': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(742,36): warning C4267: '+=': conversion from 'size_t' to 'uint32_t', possible loss of data
+  HowToPlayScene.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(70,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'HowToPlayScene.cpp')
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\HowToPlayScene.cpp(42,21): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  MenuScene.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(70,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'MenuScene.cpp')
+  
+  game.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(70,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'game.cpp')
+  
+  template.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(70,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'template.cpp')
+  
+  Generating Code...
   buasIntake.vcxproj -> C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\buasIntake_x64_debug.exe

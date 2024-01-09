@@ -34,13 +34,17 @@ class BaseBuilding : public vGameObject
 	vector2 GetPos() override;
 	vector2Int GetGridPos() override;
 
+	// these varables get added to each class that implements BaseBuilding
 	protected:
+	// points to pre existing memory
 	SpriteSheet* m_spriteSheet;
 	vector2Int m_gridPos, m_EntryPos;
 	// m_textureSize is used for mesuring how big the texture should render
 	uint8_t m_width, m_height, m_textureSize;
+	// points to pre existing memory
 	std::vector<vector2Int>* m_ptrUnwalkableTiles;
-	//these ptr's point to relatative positions for rendering
+	// these ptr's point to relatative positions for rendering
+	// these point to pre existing memory
 	float* m_ptrRelativeWidth, *m_ptrRelativeHeight;
 
 };

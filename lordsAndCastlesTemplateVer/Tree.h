@@ -37,8 +37,14 @@ class Tree : public vGameObject
 	bool occupied = false;
 
 	private:
-	SpriteSheet* m_spriteSheetIdle, * m_spriteSheetTimber;
+	// m_spriteSheetIdle and m_spriteSheetTimber are both ptr's
+	// to external data
+	// tree has 2 SpriteSheets beacause of frame dips
+	// m_spriteSheetIdle has a lot less transparent pixels so its read faster
+	SpriteSheet* m_spriteSheetIdle, *m_spriteSheetTimber;
 	vector2Int m_gridPos;
+	// m_ptrUnwalkableTiles, m_ptrRelativeWidth and m_ptrRelativeHeight
+	// are ptr's to external data
 	std::vector<vector2Int>* m_ptrUnwalkableTiles;
 	float* m_ptrRelativeWidth, * m_ptrRelativeHeight;
 

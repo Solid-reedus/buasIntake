@@ -5,6 +5,9 @@
 
 #include "vectorHeader.h"
 
+// node class is used for pathfinding 
+// its a easy way to keep track of possitions, which step it is and the distance from
+// the target and start
 class Node
 {
     public:

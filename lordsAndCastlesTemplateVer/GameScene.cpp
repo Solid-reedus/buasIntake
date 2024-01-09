@@ -54,75 +54,73 @@ namespace Tmpl8
 
 		tilesArray = new Tile * [MAP_WIDTH * MAP_HEIGHT];
 
-		for (size_t i = 0; i < MAP_WIDTH * MAP_HEIGHT; i++)
+		Surface* readMap = new Surface("assets/map200x200.png");
+		Pixel* mapSurf = readMap->GetBuffer();
+
+		for (size_t i = 0; i < MAP_WIDTH * MAP_HEIGHT; i++) 
 		{
-			tilesArray[i] = grassTile;
-		}
+			Pixel* newPixel = &mapSurf[i];
 
-		granary = IdleBuilding(SpritesheetArray[sprGranary], vector2Int(50, 50), 5, 5, &unwalkableTiles, &relativeWidth, &relativeHeight);
-		keep = IdleBuilding(SpritesheetArray[sprKeep], vector2Int(63, 50), 10, 10, &unwalkableTiles, &relativeWidth, &relativeHeight);
-		stockpile = IdleBuilding(SpritesheetArray[sprStockPile], vector2Int(53, 35), 8, 5, &unwalkableTiles, &relativeWidth, &relativeHeight);
-		stockpile.ResetUnwalkableTiles(0, 1, 8, 6);
+			int blue =  *newPixel & 0x0000ff;
+			int green = (*newPixel & 0x00ff00) >> 8;
+			int red =	(*newPixel & 0xff0000) >> 16;
 
-		tilesArray[15 + (30 * MAP_HEIGHT)] = sandTile;
-
-
-		trees.push_back(new Tree(SpritesheetArray[sprTreeIdle], SpritesheetArray[sprTreeTimber], vector2Int(15, 30), &unwalkableTiles, &relativeWidth, &relativeHeight));
-
-		for (size_t i = 0; i < 8; i++)
-		{
-			for (size_t j = 0; j < 3; j++)
+			// blue
+			if (blue > (green + red)) 
 			{
-				trees.push_back(new Tree(SpritesheetArray[sprTreeIdle], SpritesheetArray[sprTreeTimber], vector2Int(50 + (3 * i), 22 + (4 * j)), &unwalkableTiles, &relativeWidth, &relativeHeight));
+				tilesArray[i] = waterTile;
+			}
+			// green
+			else if (green > (blue + red)) 
+			{
+				tilesArray[i] = grassTile;
+			}
+			// yellow = red + green
+			else if (red > blue && green > blue) 
+			{
+				tilesArray[i] = sandTile;
 			}
 		}
 
-	}
+		keep = IdleBuilding(SpritesheetArray[sprKeep], KeepPos, 10, 10, &unwalkableTiles, &relativeWidth, &relativeHeight);
+		granary = IdleBuilding(SpritesheetArray[sprGranary], granaryPos, 5, 5, &unwalkableTiles, &relativeWidth, &relativeHeight);
+		stockpile = IdleBuilding(SpritesheetArray[sprStockPile], vector2Int(stockpilePos.x, stockpilePos.y - 6), 8, 5, &unwalkableTiles, &relativeWidth, &relativeHeight);
+		stockpile.ResetUnwalkableTiles(0, 1, 8, 6);
 
+		// init some trees
+		for (size_t i = 0; i < 8; i++)
+		{
+			for (size_t j = 0; j < 2; j++)
+			{
+				trees.push_back(new Tree(SpritesheetArray[sprTreeIdle], SpritesheetArray[sprTreeTimber], vector2Int(50 + (4 * i), 72 + (6 * j)), &unwalkableTiles, &relativeWidth, &relativeHeight));
+			}
+		}
+		for (size_t i = 0; i < 2; i++)
+		{
+			for (size_t j = 0; j < 3; j++)
+			{
+				trees.push_back(new Tree(SpritesheetArray[sprTreeIdle], SpritesheetArray[sprTreeTimber], vector2Int(146 + (3 * i), 82 + (4 * j)), &unwalkableTiles, &relativeWidth, &relativeHeight));
+			}
+		}
+		for (size_t i = 0; i < 4; i++)
+		{
+			for (size_t j = 0; j < 4; j++)
+			{
+				trees.push_back(new Tree(SpritesheetArray[sprTreeIdle], SpritesheetArray[sprTreeTimber], vector2Int(136 + (4 * i), 112 + (6 * j)), &unwalkableTiles, &relativeWidth, &relativeHeight));
+			}
+		}
+		for (size_t i = 0; i < 6; i++)
+		{
+			for (size_t j = 0; j < 5; j++)
+			{
+				trees.push_back(new Tree(SpritesheetArray[sprTreeIdle], SpritesheetArray[sprTreeTimber], vector2Int(56 + (4 * i), 142 + (4 * j)), &unwalkableTiles, &relativeWidth, &relativeHeight));
+			}
+		}
+	}
 
 	GameScene::~GameScene()
 	{
-		for (BaseBuilding* building : buildings)
-		{
-			delete building;
-		}
-		buildings.clear();
-
-		for (BaseNpc* npc : npcVector)
-		{
-			delete npc;
-		}
-		npcVector.clear();
-
-		if (grassTile != nullptr)
-		{
-			delete grassTile;
-			grassTile = nullptr;
-		}
-		if (sandTile != nullptr)
-		{
-			delete sandTile;
-			sandTile = nullptr;
-		}
-		if (waterTile != nullptr)
-		{
-			delete waterTile;
-			waterTile = nullptr;
-		}
-		if (tilesArray != nullptr)
-		{
-			delete[] tilesArray;
-			tilesArray = nullptr;
-		}
-
-		//for (SpriteSheet* sheet : SpritesheetArray)
-		//{
-		//	if (sheet != nullptr)
-		//	{
-		//		delete sheet;
-		//	}
-		//}
-
+		Delete();
 	}
 
 	void GameScene::InitScene()
@@ -501,7 +499,6 @@ namespace Tmpl8
 
 	void GameScene::DrawUI()
 	{
-
 		if (!warnings.empty())
 		{
 			if (warnings.size() > maxWarnings)
@@ -561,13 +558,11 @@ namespace Tmpl8
 
 	}
 
-
 	// Comparator function to sort vGameObject pointers based on grid position
 	bool CompareByGridPosition( vGameObject* obj1, vGameObject* obj2)
 	{
 		return (obj1->GetGridPos().x + obj1->GetGridPos().y) < (obj2->GetGridPos().x + obj2->GetGridPos().y);
 	}
-
 
 	void GameScene::Update(float p_deltaTime)
 	{
@@ -660,7 +655,52 @@ namespace Tmpl8
 
 	void GameScene::Delete()
 	{
+		for (BaseBuilding* building : buildings)
+		{
+			delete building;
+		}
+		buildings.clear();
 
+		for (BaseNpc* npc : npcVector)
+		{
+			delete npc;
+		}
+		npcVector.clear();
+
+		for (Tree* tree : trees)
+		{
+			delete tree;
+		}
+		trees.clear();
+
+		if (grassTile != nullptr)
+		{
+			delete grassTile;
+			grassTile = nullptr;
+		}
+		if (sandTile != nullptr)
+		{
+			delete sandTile;
+			sandTile = nullptr;
+		}
+		if (waterTile != nullptr)
+		{
+			delete waterTile;
+			waterTile = nullptr;
+		}
+		if (tilesArray != nullptr)
+		{
+			delete[] tilesArray;
+			tilesArray = nullptr;
+		}
+
+		for (SpriteSheet* spritesheet : SpritesheetArray)
+		{
+			if (spritesheet != nullptr)
+			{
+				delete spritesheet;
+			}
+		}
 	}
 
 	void GameScene::MouseMove(int p_x, int p_y)
@@ -707,5 +747,4 @@ namespace Tmpl8
 
 
 	}
-
 }

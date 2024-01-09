@@ -26,6 +26,9 @@ enum BuildingEnum
 	buildingWoodCutterHut
 };
 
+// this enum is used to easily a index of  
+// SpritesheetArray
+// for example applefarm sprite sheet is SpritesheetArray[sprAppleFarm]->
 enum SpriteSheetIndex
 {
 	sprDairyFarm,
@@ -41,7 +44,6 @@ enum SpriteSheetIndex
 	sprTreeTimber,
 	sprWoodCutter,
 };
-
 
 struct buildingStats
 {
@@ -77,18 +79,22 @@ namespace Tmpl8
 		void DrawUI();
 		void PlaceBuilding(int x, int y);
 
-
+		// m_ptrSurface and m_ptrGame are bot ptr's
+		// to mem that is external from itself
+		// they dont need to be destroyed
 		Surface* m_ptrSurface;
-		GameSceneEnum m_scene = menuScn;
-
-		Event m_menuClickEvents;
 		Game* m_ptrGame;
 
-		//WorkerNpc and BaseBuilding are heap memory
+		// WorkerNpc, BaseBuilding and trees are heap memory
+		// they need to be destroyed when gamescene ends
 		std::vector<BaseNpc*> npcVector;
 		std::vector<BaseBuilding*> buildings;
+		std::vector<Tree*> trees;
 
-		BuildingEnum m_selectedBuilding = buildingDairyFarm;
+		// seleced building
+		BuildingEnum m_selectedBuilding = buildingNone;
+
+		// SpritesheetArray is a array of spritesheet ptr's
 		SpriteSheet* SpritesheetArray[12];
 
 		IdleBuilding granary = IdleBuilding();
@@ -115,10 +121,10 @@ namespace Tmpl8
 		float warningDuration = 1500;
 		float warningTime = 0;
 
-		const vector2Int stockpilePos = vector2Int(56, 42);
-		const vector2Int granaryPos = vector2Int(53, 56);
-		const vector2Int applefarmPos = vector2Int(30, 40);
-		const vector2Int spawnPos = vector2Int(66, 61);
+		const vector2Int KeepPos = vector2Int(MAP_WIDTH / 2 - 5, NPC_HEIGHT / 2 - 5);
+		const vector2Int stockpilePos = vector2Int(MAP_WIDTH / 2 - 17, NPC_HEIGHT / 2 + 2);
+		const vector2Int granaryPos = vector2Int(MAP_WIDTH / 2 + 10, NPC_HEIGHT / 2 - 2);
+		const vector2Int spawnPos = vector2Int(MAP_WIDTH / 2 + 5, NPC_HEIGHT / 2 + 5);
 
 		Tile* grassTile = nullptr;
 		Tile* sandTile = nullptr;
@@ -129,8 +135,8 @@ namespace Tmpl8
 		std::vector<vector2Int> unwalkableTiles;
 		std::vector<vGameObject*> sceneObjects;
 
-		float relativeHeight = -1000;
-		float relativeWidth = 200;
+		float relativeHeight = -2200;
+		float relativeWidth = -1400;
 
 		// this is a little padding so buildings arent rendering outside the map diamond
 		const uint8_t mapPadding = 1;
@@ -146,6 +152,5 @@ namespace Tmpl8
 		RectInt uiHovelRect = { 220, ScreenHeight - interfacebannerWidth + 25, 70, 70 };
 		RectInt uiWoodcutterRect = { 310, ScreenHeight - interfacebannerWidth + 25, 70, 70 };
 
-		std::vector<Tree*> trees;
 	};
 }

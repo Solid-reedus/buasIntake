@@ -11,23 +11,20 @@ namespace Tmpl8
 
 	void Game::Shutdown()
 	{
-
+		if (m_ptrCurrentScene != nullptr)
+		{
+			m_ptrCurrentScene->Delete();
+		}
 	}
 
 	void Game::KeyDown(SDL_Keycode key)
 	{
-		// notify currentScene that key is pressed
 		m_ptrCurrentScene->KeyDown(key);
 	}
 
 	void Game::MouseDown(int button, int x, int y)
 	{
 		m_ptrCurrentScene->MouseDown(button, x, y);
-	}
-
-	void Game::MouseUp(int button, int x, int y)
-	{
-
 	}
 
 	void Game::MouseMove(int x, int y)
@@ -40,14 +37,6 @@ namespace Tmpl8
 		m_ptrCurrentScene->MouseScroll(y);
 	}
 
-	void Game::KeyUp(SDL_Keycode  key)
-	{
-		//void KeyUp(SDL_Keycode  key)
-	}
-
-
-
-
 	void Game::Tick(float deltaTime)
 	{
 		m_ptrScreen->Clear(0);
@@ -56,6 +45,7 @@ namespace Tmpl8
 
 	void Game::ChangeScene(GameSceneEnum newScene)
 	{
+		m_ptrCurrentScene->Delete();
 		switch (newScene)
 		{
 			break;
