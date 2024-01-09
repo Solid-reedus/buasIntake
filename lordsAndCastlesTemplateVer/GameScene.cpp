@@ -118,11 +118,6 @@ namespace Tmpl8
 		}
 	}
 
-	GameScene::~GameScene()
-	{
-		Delete();
-	}
-
 	void GameScene::InitScene()
 	{
 
@@ -566,6 +561,8 @@ namespace Tmpl8
 
 	void GameScene::Update(float p_deltaTime)
 	{
+		
+
 		m_deltaTime = p_deltaTime;
 		m_ptrSurface->Clear(0);
 
@@ -580,7 +577,6 @@ namespace Tmpl8
 		}
 
 		renderTiles();
-		GameEventsTick(p_deltaTime);
 
 		std::vector<vGameObject*> sceneObjects;
 
@@ -646,6 +642,7 @@ namespace Tmpl8
 		}
 
 		DrawUI();
+		GameEventsTick(p_deltaTime);
 	}
 
 	void GameScene::MouseScroll(int y)
@@ -699,6 +696,7 @@ namespace Tmpl8
 			if (spritesheet != nullptr)
 			{
 				delete spritesheet;
+				spritesheet = nullptr;
 			}
 		}
 	}
@@ -733,6 +731,11 @@ namespace Tmpl8
 
 	void GameScene::GameEventsTick(float p_deltaTime)
 	{
+		if (playerFood < npcVector.size())
+		{
+			m_ptrGame->ChangeScene(menuScn);
+		}
+
 		GameEventsTickTime += p_deltaTime;
 		if (GameEventsTickTime > GameEventsTickInterval)
 		{

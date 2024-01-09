@@ -1,6 +1,39 @@
-﻿  SpriteSheet.cpp
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\SpriteSheet.cpp(43,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\SpriteSheet.cpp(44,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\SpriteSheet.cpp(61,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\SpriteSheet.cpp(62,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+﻿  GameScene.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(70,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'GameScene.cpp')
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(95,122): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(95,108): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(102,123): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(102,109): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(109,124): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(109,109): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(116,123): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(116,108): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(536,27): warning C4477: 'sprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
+  C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(536,27):
+  consider using '%zd' in the format string
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(621,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(621,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(744,33): warning C4267: '-=': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\GameScene.cpp(745,36): warning C4267: '+=': conversion from 'size_t' to 'uint32_t', possible loss of data
+  HowToPlayScene.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(70,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'HowToPlayScene.cpp')
+  
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\HowToPlayScene.cpp(42,21): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  MenuScene.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(70,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'MenuScene.cpp')
+  
+  game.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(70,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'game.cpp')
+  
+  template.cpp
+C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\Node.h(70,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'template.cpp')
+  
+  Generating Code...
   buasIntake.vcxproj -> C:\Users\dogef\Documents\cpp files\intake project\lordsAndCastlesTemplateVer\buasIntake_x64.exe

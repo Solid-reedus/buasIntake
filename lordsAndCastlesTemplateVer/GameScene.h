@@ -61,7 +61,7 @@ namespace Tmpl8
 	{
 		public:
 		GameScene(Surface* surface, Game* game);
-		~GameScene() override;
+		~GameScene() override {};
 
 		void InitScene() override;
 		void Update(float p_deltaTime) override;

@@ -14,8 +14,8 @@ namespace Tmpl8
 		printf("current scene is menu \n");
 
 		// load ui
-		m_playGamebtn = Button({ 100, 200, 150, 75 }, k_grey, m_ptrSurface, "play", 3, k_red);
-		m_GoToHowToPlaysbtn = Button({ 100, 300, 150, 75 }, k_grey, m_ptrSurface, "how to play", 2, k_red);
+		m_playGamebtn = Button({ 100, 200, 150, 75 }, k_grey, m_ptrSurface, "play", 3, k_gold);
+		m_GoToHowToPlaysbtn = Button({ 100, 300, 150, 75 }, k_grey, m_ptrSurface, "how to play", 2, k_gold);
 	}
 
 
